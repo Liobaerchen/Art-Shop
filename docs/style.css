@@ -152,12 +152,25 @@ ul{ margin:0; padding:0; list-style:none; }
   gap: 24px;
 }
 .logo{
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 18px;
-  letter-spacing: -.01em;
-  white-space: nowrap;
+  display:flex;
+  align-items:center;
+  gap:12px;
 }
+
+.logo__icon{
+  width:42px;
+  height:42px;
+  object-fit:contain;
+  flex-shrink:0;
+}
+
+.logo__text{
+  font-family:var(--font-display);
+  font-weight:600;
+  font-size:18px;
+  letter-spacing:-.01em;
+}
+
 .nav{
   display: flex;
   gap: clamp(18px, 2.4vw, 40px);
