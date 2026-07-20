@@ -97,10 +97,6 @@ ul{ margin:0; padding:0; list-style:none; }
   margin-top: 32px;
 }
 
-.statement__text-col .media-frame{
-  margin-top: clamp(32px, 5vw, 64px);
-}
-
 /* =========================================================================
    UTILITY BAR
    ========================================================================= */
@@ -322,42 +318,135 @@ ul{ margin:0; padding:0; list-style:none; }
     font-size: 1rem;
 }
 
-/* =========================================================================
-   FEATURED VISUAL
-   ========================================================================= */
-#featured-visual{
-  padding: 0 var(--gutter);
-  max-width: var(--container);
-  margin: 0 auto clamp(80px, 12vh, 140px);
-}
+
+ /* =========================================================================
+    HERO & FEATURED VISUAL (Laptop & Desktop Optimization)
+    ========================================================================= */
+
+    /* 1. Remove the horizontal padding from the container so the video hits the edges */
+    #featured-visual {
+      width: 100%;
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0; /* Changed from padding: 0 var(--gutter) to 0 */
+      overflow: hidden;
+      border-radius: 20px;
+    }
+
+   /* Adjust for smaller screens where aspect ratio might feel too tall */
+   @media(max-width: 768px) {
+     .hero-video__media {
+       aspect-ratio: 4 / 5; /* Taller for mobile devices */
+     }
+   }
+
+   /* Overlay for text readability */
+   .hero-video__overlay {
+     position: absolute;
+     inset: 0;
+     background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+     border-radius: 20px;
+   }
 
 /* =========================================================================
-   STATEMENT
+   STATEMENT (LUSION STYLE)
    ========================================================================= */
-#statement{
+#statement {
   max-width: var(--container);
   margin: 0 auto;
-  padding: 0 var(--gutter) clamp(90px, 14vh, 160px);
-}
-.statement__grid{
-  display: grid;
-  grid-template-columns: 1fr 1.4fr;
-  gap: clamp(32px, 6vw, 96px);
+  padding: clamp(80px, 14vh, 160px) var(--gutter);
+  position: relative;
   border-top: 1px solid var(--grey-line);
-  padding-top: 48px;
+  overflow: hidden; /* Contains the giant SVG arc */
 }
-.statement__heading{
+
+/* Massive, sweeping line */
+.statement__swash {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1; /* Pushed to the back */
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+.statement__top {
+  position: relative;
+  z-index: 3; /* Floats over the line */
+  max-width: 1000px;
+  margin-bottom: clamp(60px, 12vh, 120px);
+}
+
+.statement__heading {
   font-family: var(--font-display);
-  font-weight: 600;
-  font-size: clamp(28px, 3.2vw, 44px);
-  letter-spacing: -.01em;
-  line-height: 1.15;
+  font-weight: 500;
+  /* Massively scaled to match Lusion */
+  font-size: clamp(64px, 11vw, 150px);
+  line-height: 0.95;
+  letter-spacing: -.03em;
+  margin: 24px 0 0;
+  /* White text shadow creates a clean cutout effect if the line crosses text */
+  text-shadow: 3px 3px 0 var(--paper), -3px -3px 0 var(--paper), 3px -3px 0 var(--paper), -3px 3px 0 var(--paper);
 }
-.statement__text-col p{
-  font-size: clamp(17px, 1.6vw, 20px);
-  line-height: 1.65;
+
+.statement__layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(40px, 6vw, 100px);
+  align-items: center;
+  position: relative;
+  z-index: 3; /* Ensures the image sits ON TOP of the plunging line */
+}
+
+.statement__process-image {
+  width: 100%;
+  aspect-ratio: 16/10; /* Wider landscape to match Lusion */
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 25px 70px rgba(0,0,0,.12);
+  background: var(--grey-line);
+}
+
+.statement__process-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.statement__text-col {
+  max-width: 48ch;
+  margin-left: auto;
+}
+
+.statement__text-col p {
+  font-size: clamp(16px, 1.4vw, 18px);
+  line-height: 1.7;
   color: #2c2c2c;
-  max-width: 60ch;
+}
+
+.statement__text-col p + p {
+  margin-top: 24px;
+}
+
+@media(max-width:900px){
+  .statement__layout {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .statement__text-col {
+    margin-left: 0;
+    order: 1;
+  }
+  .statement__process-image {
+    order: 2;
+    aspect-ratio: 4/3;
+  }
+  .statement__heading {
+    hyphens: auto;
+  }
 }
 
 /* ==========================================
@@ -365,11 +454,12 @@ ul{ margin:0; padding:0; list-style:none; }
 ========================================== */
 
 #gallery {
-    width:100%;
-    max-width:none;
-    margin:0;
-    padding:0 clamp(24px, 3vw, 48px);
-    text-align:center;
+    width: 100%;
+    max-width: none;
+    margin-top: 50px;    /* Adds space before the gallery */
+    margin-bottom: 50px; /* Adds space after the gallery */
+    padding: 0 clamp(24px, 3vw, 48px);
+    text-align: center;
 }
 
 
@@ -757,41 +847,44 @@ body.menu-open{ overflow: hidden; }
 /* =========================================================================
    ADDED
    ========================================================================= */
+   /* 1. The Container (The "Grey Box") */
+   .hero-video {
+     position: relative;
+     width: 100%;
+     aspect-ratio: 16 / 9; /* Controls the shape/height */
+     overflow: hidden;
+     border-radius: 20px; /* Optional: adds rounded corners */
+     background-color: var(--grey-line); /* This is the "grey" you see if the video fails to load */
+   }
 
+   /* 2. The Video Element itself */
+   .hero-video__media {
+     width: 100%;
+     height: 100%;
+     object-fit: cover; /* This makes the video fill the container */
+     display: block;
+   }
 
-.hero-video {
-    position: relative;
-    width: 100%;
-    height: 80vh;
-    overflow: hidden;
-}
+   /* 3. The Overlay (for text readability) */
+   .hero-video__overlay {
+     position: absolute;
+     inset: 0;
+     background: rgba(0, 0, 0, 0.35);
+     pointer-events: none; /* Allows clicks to pass through to buttons if needed */
+     z-index: 1;
+   }
 
-.hero-video__media {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* grey veil over the video */
-.hero-video__overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0,0,0,0.35);
-}
-
-/* text above everything */
-.hero-video__content {
-    position: relative;
-    z-index: 2;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 5vw;
-    color: white;
-}
+   /* 4. The Content (Text on top) */
+   .hero-video__content {
+     position: absolute;
+     inset: 0;
+     z-index: 2;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     padding: 5vw;
+     color: white;
+   }
 
 .hero-video__content .eyebrow {
     color: white;
@@ -815,4 +908,162 @@ body.menu-open{ overflow: hidden; }
   border-top: 1px solid var(--grey-line);
   margin: 0 auto;
   max-width: var(--container);
+  position: relative;
+  z-index: 1;
+}
+
+.split-panel__image{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+
+    opacity:.22;
+    transition:
+        transform .8s cubic-bezier(.22,.61,.36,1),
+        opacity .4s;
+}
+
+.split-panel:hover .split-panel__image{
+    transform:scale(1.05);
+    opacity:.30;
+}
+
+.split-panel__content{
+    position:relative;
+    z-index:2;
+}
+
+.split-panel--dark .split-panel__image{
+    opacity:.15;
+    filter:brightness(.6);
+}
+
+/* =========================================================================
+   MOBILE OPTIMIZATIONS
+   ========================================================================= */
+
+/* Header adjustment for mobile */
+@media(max-width: 768px) {
+  #menu-toggle { display: flex; }
+  .nav { display: none; }
+  .pill-btn { display: none; }
+
+  /* Shop split becomes stacked */
+  #shop-split {
+    grid-template-columns: 1fr;
+  }
+  .split-panel {
+    min-height: 320px;
+    padding: 60px var(--gutter);
+  }
+}
+
+/* Refined Gallery for mobile - "Lusion" inspired grid */
+@media(max-width: 900px) {
+  .gallery__grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .gallery__heading {
+    font-size: clamp(32px, 8vw, 48px);
+    margin-bottom: 40px;
+  }
+  .gallery__item .media-frame {
+    border-radius: 20px;
+  }
+}
+
+/* Statement typography refinement for mobile */
+@media(max-width: 600px) {
+  .statement__heading {
+    font-size: clamp(48px, 12vw, 64px);
+  }
+  .statement__layout {
+    gap: 32px;
+  }
+}
+
+/* Newsletter Form - touch-friendly */
+@media(max-width: 600px) {
+  #newsletter-form {
+    padding: 4px 4px 4px 16px;
+  }
+  #newsletter-email {
+    font-size: 16px; /* Prevents auto-zoom on iOS */
+  }
+}
+
+:root {
+  --ink: #0d0d0d;
+  --paper: #ffffff;
+  --paper-warm: #fafaf8;
+  --grey-mid: #9a9a94;
+  --grey-line: #e4e3df;
+  --invert-bg: #0d0d0d;
+  --invert-text: #f7f7f5;
+  --gutter: clamp(20px, 4vw, 64px);
+  --header-h: 84px;
+}
+
+/* Base resets */
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: "Inter", sans-serif; }
+
+/* Header Responsiveness */
+#site-header { position: sticky; top: 0; z-index: 40; background: rgba(255,255,255,.9); backdrop-filter: blur(10px); }
+.site-header__inner { max-width: 1240px; margin: 0 auto; padding: 0 var(--gutter); height: var(--header-h); display: flex; align-items: center; justify-content: space-between; }
+
+@media(max-width: 768px) {
+  .nav, .pill-btn { display: none; }
+  #menu-toggle { display: flex; align-items: center; gap: 10px; }
+}
+
+/* Mobile Menu Overlay */
+#mobile-menu { position: fixed; inset: 0; z-index: 50; background: var(--paper); padding: var(--gutter); display: flex; flex-direction: column; justify-content: center; transform: translateY(-100%); transition: transform .45s ease; }
+#mobile-menu.is-open { transform: translateY(0); }
+.mobile-menu__links { display: flex; flex-direction: column; gap: 20px; font-size: 40px; font-weight: 600; }
+
+/* Grid Stacking */
+.statement__layout, .gallery__grid, #shop-split { display: grid; }
+
+@media(max-width: 900px) {
+  .statement__layout { grid-template-columns: 1fr; }
+  .gallery__grid { grid-template-columns: 1fr; }
+  #shop-split { grid-template-columns: 1fr; }
+  .statement__heading { font-size: clamp(48px, 10vw, 80px); }
+}
+
+/* Components */
+.media-frame { overflow: hidden; border-radius: 20px; }
+
+/* 1. Ensure the container forces the shape */
+.hero-video {
+  width: 100%;
+  aspect-ratio: 16 / 9; /* This enforces the size */
+  overflow: hidden;      /* This clips the video so it doesn't spill out */
+  border-radius: 20px;
+  background: transparent; /* Remove background color to be sure */
+  position: relative;
+}
+
+/* 2. Force the video to fill that exact container */
+.hero-video__media {
+  width: 100% !important;  /* !important overrides the 140% setting */
+  height: 100% !important;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Newsletter */
+#newsletter-form { display: flex; border: 1px solid #3a3a37; border-radius: 999px; padding: 10px; max-width: 400px; margin: 0 auto; }
+#newsletter-form input { flex: 1; border: none; background: none; color: var(--invert-text); padding-left: 10px; }
+#newsletter-form button { background: var(--invert-text); border-radius: 50%; width: 40px; height: 40px; }
+
+/* Mobile safe zones */
+@media(max-width: 600px) {
+  :root { --gutter: 20px; }
+  #featured-visual { padding: 0 var(--gutter); }
 }
