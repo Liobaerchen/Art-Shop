@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prints — Lioba Roggendorf</title>
+<meta name="description" content="Prints are currently sold out. Sign up for early access to the next print drop.">
+
+<link rel="icon" type="image/png" href="files/favicon.png">
+<link rel="apple-touch-icon" href="files/favicon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="utility-bar">
+  <div class="utility-bar__inner">
+    <span class="utility-bar__note">
+      <span class="lang-en">Based in Berlin / Amsterdam / Tokyo</span>
+      <span class="lang-ja">拠点：ベルリン / アムステルダム / 東京</span>
+    </span>
+    <div class="lang-switch" role="group" aria-label="Language">
+      <button type="button" class="lang-switch__btn" data-lang-btn="en" aria-pressed="true">EN</button>
+      <span class="lang-switch__divider">/</span>
+      <button type="button" class="lang-switch__btn" data-lang-btn="ja" aria-pressed="false">日本語</button>
+    </div>
+  </div>
+</div>
+
+<header id="site-header">
+  <div class="site-header__inner">
+    <a href="index.html#top" class="logo">
+      <img src="files/favicon.png" alt="Lioba Roggendorf logo" class="logo__icon">
+      <span class="logo__text">
+        <span class="lang-en">Lioba Roggendorf</span>
+        <span class="lang-ja">ロッゲンドルフ・リオバ</span>
+      </span>
+    </a>
+
+    <nav class="nav" id="primary-nav">
+      <a href="index.html#top" class="nav__link"><span class="lang-en">Home</span><span class="lang-ja">ホーム</span></a>
+      <a href="originals.html" class="nav__link"><span class="lang-en">Originals</span><span class="lang-ja">オリジナル作品</span></a>
+      <a href="prints.html" class="nav__link --active"><span class="lang-en">Prints</span><span class="lang-ja">プリント</span></a>
+      <a href="index.html#statement" class="nav__link"><span class="lang-en">About</span><span class="lang-ja">アバウト</span></a>
+      <a href="index.html#contact" class="nav__link"><span class="lang-en">Contact</span><span class="lang-ja">お問い合わせ</span></a>
+    </nav>
+
+    <div class="site-header__right">
+      <!-- On this page the header pill points at Originals instead — never a link to the page you're already on -->
+      <a href="originals.html" class="pill-btn">
+        <span class="lang-en">Shop Originals</span><span class="lang-ja">作品を見る</span>
+        <span class="pill-btn__arrow" aria-hidden="true">→</span>
+      </a>
+      <button type="button" id="menu-toggle" aria-label="Menu" aria-expanded="false">
+        <span class="menu-toggle__text"><span class="lang-en">Menu</span><span class="lang-ja">メニュー</span></span>
+        <span class="menu-toggle__dots"><i></i><i></i></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div id="mobile-menu">
+  <nav class="mobile-menu__links">
+    <a href="index.html#top" data-close-menu><span class="lang-en">Home</span><span class="lang-ja">ホーム</span></a>
+    <a href="originals.html" data-close-menu><span class="lang-en">Originals</span><span class="lang-ja">オリジナル作品</span></a>
+    <a href="prints.html" data-close-menu><span class="lang-en">Prints</span><span class="lang-ja">プリント</span></a>
+    <a href="index.html#statement" data-close-menu><span class="lang-en">About</span><span class="lang-ja">アバウト</span></a>
+    <a href="index.html#contact" data-close-menu><span class="lang-en">Contact</span><span class="lang-ja">お問い合わせ</span></a>
+  </nav>
+  <div class="mobile-menu__newsletter">
+    <p class="lang-en">Join the Studio for new release updates!</p>
+    <p class="lang-ja">スタジオに参加して、新作情報を受け取る！</p>
+  </div>
+</div>
+
+<main id="top">
+  <section class="prints-hero">
+    <div class="prints-hero__text">
+      <img src="files/favicon.png" alt="Lioba Roggendorf logo" class="prints-hero__logo">
+
+      <h1 class="prints-hero__heading">
+        <span class="lang-en">All Prints Sold Out</span>
+        <span class="lang-ja">プリントは完売しました</span>
+      </h1>
+      <p class="prints-hero__desc">
+        <span class="lang-en">But don't worry! You can sign up here to receive early access to my next print drop.</span>
+        <span class="lang-ja">ご安心ください。こちらにご登録いただくと、次回のプリント発売を先行してお知らせします。</span>
+      </p>
+
+      <!-- 🔌 Replace this handler with your email provider's own submit logic once you have one
+           (Mailchimp / ConvertKit / Flodesk all support a name + email field). script.js currently
+           just prevents the default submit and shows a placeholder confirmation message. -->
+      <form id="prints-notify-form" class="prints-hero__form" action="#" method="post">
+        <input
+          type="text"
+          name="NAME"
+          id="prints-notify-name"
+          placeholder="Your name"
+          data-placeholder-en="Your name"
+          data-placeholder-ja="お名前"
+          autocomplete="name">
+        <input
+          type="email"
+          name="EMAIL"
+          id="prints-notify-email"
+          required
+          placeholder="Your email"
+          data-placeholder-en="Your email"
+          data-placeholder-ja="メールアドレス"
+          autocomplete="email">
+        <button type="submit">
+          <span class="lang-en">Notify me</span>
+          <span class="lang-ja">通知を受け取る</span>
+          <span aria-hidden="true">→</span>
+        </button>
+      </form>
+      <p id="prints-notify-feedback" class="prints-hero__feedback" role="status"></p>
+    </div>
+
+    <!-- 🖼️ INSERT IMAGE: files/prints.jpg — a large, representative print/wall shot -->
+    <div class="prints-hero__image">
+      <img src="files/prints.jpg" alt="Prints by Lioba Roggendorf">
+    </div>
+  </section>
+</main>
+
+<footer id="site-footer">
+  <div class="site-footer__inner">
+    <a href="index.html#top" class="logo">
+      <span class="lang-en">Lioba Roggendorf</span>
+      <span class="lang-ja">ロッゲンドルフ・リオバ</span>
+    </a>
+    <nav class="site-footer__nav">
+      <a href="index.html#top"><span class="lang-en">Home</span><span class="lang-ja">ホーム</span></a>
+      <a href="originals.html"><span class="lang-en">Originals</span><span class="lang-ja">オリジナル作品</span></a>
+      <a href="prints.html"><span class="lang-en">Prints</span><span class="lang-ja">プリント</span></a>
+      <a href="index.html#statement"><span class="lang-en">About</span><span class="lang-ja">アバウト</span></a>
+      <a href="index.html#contact"><span class="lang-en">Contact</span><span class="lang-ja">お問い合わせ</span></a>
+    </nav>
+    <button type="button" id="back-to-top" aria-label="Back to top">↑</button>
+  </div>
+  <div class="site-footer__bottom">
+    <span id="footer-year"></span>
+    <span class="lang-en">Lioba Roggendorf. All rights reserved.</span>
+    <span class="lang-ja">ロッゲンドルフ・リオバ。All rights reserved.</span>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

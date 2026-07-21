@@ -186,3 +186,185 @@
      window.addEventListener('resize', updateOriginalsGrid);
      updateOriginalsGrid();
    })();
+
+/* ==========================================================================
+   PRODUCT PAGE — horizontal scroll gallery (Lusion-style pinned section)
+   ========================================================================== */
+(function () {
+  var wrapper = document.querySelector('.hscroll');
+  if (!wrapper) return;
+  var sticky = wrapper.querySelector('.hscroll__sticky');
+  var track = wrapper.querySelector('.hscroll__track');
+  var frames = wrapper.querySelectorAll('.hscroll__frame');
+  var counter = wrapper.querySelector('.hscroll__counter');
+
+  function isJacked() {
+    return getComputedStyle(sticky).position === 'sticky';
+  }
+
+  function setWrapperHeight() {
+    var vh = window.innerHeight;
+    wrapper.style.height = Math.max(frames.length * vh * 0.9, vh * 2) + 'px';
+  }
+
+  function update() {
+    if (!isJacked()) return;
+    var rect = wrapper.getBoundingClientRect();
+    var scrollableDist = wrapper.offsetHeight - window.innerHeight;
+    var progress = scrollableDist > 0 ? Math.min(Math.max(-rect.top / scrollableDist, 0), 1) : 0;
+    var maxTranslate = Math.max(track.scrollWidth - sticky.clientWidth, 0);
+    track.style.transform = 'translateX(-' + (progress * maxTranslate).toFixed(1) + 'px)';
+
+    if (counter && frames.length) {
+      var frameSpan = 1 / frames.length;
+      var index = Math.min(Math.floor(progress / frameSpan), frames.length - 1);
+      var label = String(index + 1).padStart(2, '0') + ' — ' + String(frames.length).padStart(2, '0');
+      if (counter.textContent !== label) counter.textContent = label;
+    }
+  }
+
+  setWrapperHeight();
+  update();
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', function () { setWrapperHeight(); update(); });
+})();
+
+/* ==========================================================================
+   PRODUCT PAGE — purchase modal ("Inquire about original")
+   ========================================================================== */
+(function () {
+  var openBtns = document.querySelectorAll('[data-open-modal]');
+  var overlay = document.querySelector('.modal-overlay');
+  if (!openBtns.length || !overlay) return;
+  var closeBtn = overlay.querySelector('.modal__close');
+
+  function open() {
+    overlay.classList.add('is-open');
+    document.body.classList.add('modal-open');
+  }
+  function close() {
+    overlay.classList.remove('is-open');
+    document.body.classList.remove('modal-open');
+  }
+
+  openBtns.forEach(function (btn) { btn.addEventListener('click', open); });
+  if (closeBtn) closeBtn.addEventListener('click', close);
+  overlay.addEventListener('click', function (e) {
+    if (e.target === overlay) close();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') close();
+  });
+})();
+
+/* ==========================================================================
+   PRODUCT PAGE — add to cart (localStorage) + small non-blocking toast
+   🔌 Real, working client-side cart (persists per browser/device). There's
+   no cart *page* yet — this just stores items and confirms the add.
+   ========================================================================== */
+(function () {
+  var addBtns = document.querySelectorAll('[data-add-to-cart]');
+  var toast = document.querySelector('.cart-toast');
+  if (!addBtns.length) return;
+  var CART_KEY = 'studio-cart';
+
+  function addToCart(item) {
+    var cart = [];
+    try { cart = JSON.parse(localStorage.getItem(CART_KEY)) || []; } catch (e) { cart = []; }
+    if (!cart.some(function (c) { return c.id === item.id; })) {
+      cart.push(item);
+      try { localStorage.setItem(CART_KEY, JSON.stringify(cart)); } catch (e) { /* ignore */ }
+    }
+    return cart.length;
+  }
+
+  addBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      addToCart({
+        id: btn.dataset.id,
+        title: btn.dataset.title,
+        price: btn.dataset.price,
+        image: btn.dataset.image
+      });
+      if (toast) toast.classList.add('is-open');
+    });
+  });
+
+  if (toast) {
+    var closeToast = toast.querySelector('.cart-toast__close');
+    if (closeToast) {
+      closeToast.addEventListener('click', function () {
+        toast.classList.remove('is-open');
+      });
+    }
+  }
+})();
+
+/* ==========================================================================
+   PRODUCT PAGE — share button
+   ========================================================================== */
+(function () {
+  var shareBtn = document.querySelector('[data-share-btn]');
+  var popover = document.querySelector('.share-popover');
+  if (!shareBtn) return;
+
+  var pageUrl = window.location.href;
+  var pageTitle = document.title;
+
+  async function nativeShare() {
+    if (navigator.share) {
+      try {
+        await navigator.share({ title: pageTitle, url: pageUrl });
+        return true;
+      } catch (e) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  shareBtn.addEventListener('click', async function (e) {
+    e.stopPropagation();
+    var shared = await nativeShare();
+    if (!shared && popover) popover.classList.toggle('is-open');
+  });
+
+  if (popover) {
+    var copyLink = popover.querySelector('[data-copy-link]');
+    if (copyLink) {
+      copyLink.addEventListener('click', function () {
+        navigator.clipboard.writeText(pageUrl).then(function () {
+          copyLink.textContent = 'Link copied ✓';
+          setTimeout(function () {
+            copyLink.innerHTML = '<span aria-hidden="true">🔗</span> Copy link';
+          }, 1800);
+        });
+      });
+    }
+    document.addEventListener('click', function (e) {
+      if (!popover.contains(e.target) && e.target !== shareBtn) {
+        popover.classList.remove('is-open');
+      }
+    });
+  }
+})();
+
+/* ==========================================================================
+   PRINTS PAGE — notify-me form (name + email)
+   🔌 Same placeholder pattern as the main newsletter form — swap in your
+   email provider's real submit logic once you have one.
+   ========================================================================== */
+(function () {
+  var form = document.getElementById('prints-notify-form');
+  var feedback = document.getElementById('prints-notify-feedback');
+  if (!form) return;
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var lang = document.documentElement.getAttribute('data-lang');
+    feedback.textContent = lang === 'ja'
+      ? 'ありがとうございます！登録が完了しました。'
+      : "Thanks — you're on the list.";
+    form.reset();
+  });
+})();
