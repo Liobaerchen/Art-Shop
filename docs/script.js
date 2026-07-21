@@ -153,3 +153,36 @@
 
 
    updateSphereGallery();
+
+
+
+   /* ==========================================================================
+      Originals grid — same scroll-driven feel as the homepage gallery above,
+      just dialed way back: no 3D tilt, small scale/opacity drift only. Only
+      runs on pages that actually have an originals grid (originals.html).
+      ========================================================================== */
+   (function () {
+     var items = document.querySelectorAll(".originals__item");
+     if (!items.length) return;
+
+     function updateOriginalsGrid() {
+       var center = window.innerHeight / 2;
+
+       items.forEach(function (item) {
+         var rect = item.getBoundingClientRect();
+         var itemCenter = rect.top + rect.height / 2;
+         var distance = itemCenter - center;
+         var strength = Math.min(Math.abs(distance) / window.innerHeight, 1);
+
+         var scale = 1 - strength * 0.06;          // was 0.25 on the homepage gallery
+         var translateY = strength * 10 * Math.sign(distance || 1); // was translateZ ±250px
+
+         item.style.transform = 'translateY(' + translateY.toFixed(2) + 'px) scale(' + scale.toFixed(3) + ')';
+         item.style.opacity = String(1 - strength * 0.12);
+       });
+     }
+
+     window.addEventListener('scroll', updateOriginalsGrid, { passive: true });
+     window.addEventListener('resize', updateOriginalsGrid);
+     updateOriginalsGrid();
+   })();

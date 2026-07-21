@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Originals — Lioba Roggendorf</title>
+<meta name="description" content="Original watercolor paintings by Lioba Roggendorf — one-of-a-kind pieces, available directly from the studio.">
+
+<link rel="icon" type="image/png" href="files/favicon.png">
+<link rel="apple-touch-icon" href="files/favicon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ================= UTILITY BAR ================= -->
+<div id="utility-bar">
+  <div class="utility-bar__inner">
+    <span class="utility-bar__note">
+      <span class="lang-en">Based in Berlin / Amsterdam / Tokyo</span>
+      <span class="lang-ja">拠点：<!-- ✍️ ART TEXT: 都市・国名（任意） --></span>
+    </span>
+    <div class="lang-switch" role="group" aria-label="Language">
+      <button type="button" class="lang-switch__btn" data-lang-btn="en" aria-pressed="true">EN</button>
+      <span class="lang-switch__divider">/</span>
+      <button type="button" class="lang-switch__btn" data-lang-btn="ja" aria-pressed="false">日本語</button>
+    </div>
+  </div>
+</div>
+
+<!-- ================= HEADER ================= -->
+<header id="site-header">
+  <div class="site-header__inner">
+    <a href="index.html#top" class="logo">
+      <img src="files/favicon.png" alt="Lioba Roggendorf logo" class="logo__icon">
+      <span class="logo__text">
+        <span class="lang-en">Lioba Roggendorf</span>
+        <span class="lang-ja">ロッゲンドルフ・リオバ</span>
+      </span>
+    </a>
+
+    <nav class="nav" id="primary-nav">
+      <a href="index.html#top" class="nav__link">
+        <span class="lang-en">Home</span><span class="lang-ja">ホーム</span>
+      </a>
+      <a href="originals.html" class="nav__link --active">
+        <span class="lang-en">Originals</span><span class="lang-ja">オリジナル作品</span>
+      </a>
+      <a href="prints.html" class="nav__link">
+        <span class="lang-en">Prints</span><span class="lang-ja">プリント</span>
+      </a>
+      <a href="index.html#statement" class="nav__link">
+        <span class="lang-en">About</span><span class="lang-ja">アバウト</span>
+      </a>
+      <a href="index.html#contact" class="nav__link">
+        <span class="lang-en">Contact</span><span class="lang-ja">お問い合わせ</span>
+      </a>
+    </nav>
+
+    <div class="site-header__right">
+      <!-- On this page the header pill points at Prints instead — never a link to the page you're already on -->
+      <a href="prints.html" class="pill-btn">
+        <span class="lang-en">Browse Prints</span><span class="lang-ja">プリントを見る</span>
+        <span class="pill-btn__arrow" aria-hidden="true">→</span>
+      </a>
+      <button type="button" id="menu-toggle" aria-label="Menu" aria-expanded="false">
+        <span class="menu-toggle__text">
+          <span class="lang-en">Menu</span><span class="lang-ja">メニュー</span>
+        </span>
+        <span class="menu-toggle__dots"><i></i><i></i></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile full-screen nav overlay -->
+<div id="mobile-menu">
+  <nav class="mobile-menu__links">
+    <a href="index.html#top" data-close-menu>
+      <span class="lang-en">Home</span><span class="lang-ja">ホーム</span>
+    </a>
+    <a href="originals.html" data-close-menu>
+      <span class="lang-en">Originals</span><span class="lang-ja">オリジナル作品</span>
+    </a>
+    <a href="prints.html" data-close-menu>
+      <span class="lang-en">Prints</span><span class="lang-ja">プリント</span>
+    </a>
+    <a href="index.html#statement" data-close-menu>
+      <span class="lang-en">About</span><span class="lang-ja">アバウト</span>
+    </a>
+    <a href="index.html#contact" data-close-menu>
+      <span class="lang-en">Contact</span><span class="lang-ja">お問い合わせ</span>
+    </a>
+  </nav>
+  <div class="mobile-menu__newsletter">
+    <p class="lang-en">Join the Studio for new release updates!</p>
+    <p class="lang-ja">新作情報を受け取る！</p>
+  </div>
+</div>
+
+<main id="top">
+
+  <!-- ================= PAGE INTRO ================= -->
+  <section id="originals-intro">
+    <p class="eyebrow">
+      <span class="eyebrow__mark" aria-hidden="true">+</span>
+      <span class="lang-en">Originals</span>
+      <span class="lang-ja">オリジナル作品</span>
+    </p>
+    <h1 class="statement__heading">
+      <!-- ✍️ ART TEXT: page headline -->
+      <span class="lang-en">Unique, hand-painted pieces</span>
+      <span class="lang-ja">手描きによる、一点物の作品</span>
+    </h1>
+    <p class="originals__intro-desc">
+      <!-- ✍️ ART TEXT: short intro paragraph -->
+      <span class="lang-en">Each piece below is an original watercolor, painted once and sold once. If something speaks to you, feel free to contact me! I reply to every inquiry personally.</span>
+      <span class="lang-ja">こちらの作品はすべて一点物の水彩オリジナルです。画像にカーソルを合わせると拡大表示されます。気になる作品がございましたら、お気軽にお問い合わせください。すべてのお問い合わせに直接お返事しています。</span>
+    </p>
+  </section>
+
+  <!-- ================= ORIGINALS GRID ================= -->
+  <section id="originals-grid">
+    <div class="originals__grid">
+
+      <!-- =====================================================================
+           TEMPLATE — copy this whole <article> block to add a new original.
+           1. Bump the number everywhere (original11.jpg, alt text, etc.)
+           2. Set data-sold="false" while it's for sale, or "true" once it sells —
+              that one attribute controls the badge, the dimmed image, and the
+              CTA button all at once. Nothing else needs to change.
+           3. Files expected in /files/originals/:
+                originalN.jpg         (grid + base hover image)
+                originalNzoomed.jpg   (shown on hover — a closer crop/detail)
+
+      <article class="originals__item" data-sold="false">
+        <div class="originals__media">
+          <img class="originals__img originals__img--base" src="files/originals/originalN.jpg" alt="Title of the piece" loading="lazy">
+          <img class="originals__img originals__img--zoom" src="files/originals/originalNzoomed.jpg" alt="" aria-hidden="true" loading="lazy">
+          <span class="originals__badge">
+            <span class="lang-en">Sold</span><span class="lang-ja">売約済み</span>
+          </span>
+        </div>
+        <div class="originals__caption">
+          <h3 class="originals__title">Title of the piece</h3>
+          <span class="originals__price">€000</span>
+        </div>
+        <a class="originals__cta" href="mailto:lioba.roggendorf@gmail.com?subject=Inquiry%20about%20%22Title%20of%20the%20piece%22">
+          <span class="lang-en">Inquire about original</span><span class="lang-ja">この作品について問い合わせる</span>
+          <span aria-hidden="true">→</span>
+        </a>
+        <span class="originals__sold-label">
+          <span class="lang-en">Sold</span><span class="lang-ja">売約済み</span>
+        </span>
+      </article>
+      ===================================================================== -->
+
+      <article class="originals__item" data-sold="false">
+        <div class="originals__media">
+          <img class="originals__img originals__img--base" src="files/originals/original1.jpg" alt="Original 01" loading="lazy">
+          <img class="originals__img originals__img--zoom" src="files/originals/original1zoomed.jpg" alt="" aria-hidden="true" loading="lazy">
+          <span class="originals__badge"><span class="lang-en">Sold</span><span class="lang-ja">売約済み</span></span>
+        </div>
+        <div class="originals__caption">
+          <h3 class="originals__title">Original 01</h3>
+          <span class="originals__price">€250</span>
+        </div>
+        <a class="originals__cta" href="mailto:lioba.roggendorf@gmail.com?subject=Inquiry%20about%20%22Original%2001%22">
+          <span class="lang-en">Inquire about original</span><span class="lang-ja">この作品について問い合わせる</span>
+          <span aria-hidden="true">→</span>
+        </a>
+        <span class="originals__sold-label"><span class="lang-en">Sold</span><span class="lang-ja">売約済み</span></span>
+      </article>
+
+      <article class="originals__item" data-sold="false">
+        <div class="originals__media">
+          <img class="originals__img originals__img--base" src="files/originals/original2.jpg" alt="Original 02" loading="lazy">
+          <img class="originals__img originals__img--zoom" src="files/originals/original2zoomed.jpg" alt="" aria-hidden="true" loading="lazy">
+          <span class="originals__badge"><span class="lang-en">Sold</span><span class="lang-ja">売約済み</span></span>
+        </div>
+        <div class="originals__caption">
+          <h3 class="originals__title">Original 02</h3>
+          <span class="originals__price">€250</span>
+        </div>
+        <a class="originals__cta" href="mailto:lioba.roggendorf@gmail.com?subject=Inquiry%20about%20%22Original%2002%22">
+          <span class="lang-en">Inquire about original</span><span class="lang-ja">この作品について問い合わせる</span>
+          <span aria-hidden="true">→</span>
+        </a>
+        <span class="originals__sold-label"><span class="lang-en">Sold</span><span class="lang-ja">売約済み</span></span>
+      </article>
+
+      <article class="originals__item" data-sold="true">
+        <div class="originals__media">
+          <img class="originals__img originals__img--base" src="files/originals/original3.jpg" alt="Original 03" loading="lazy">
+          <img class="originals__img originals__img--zoom" src="files/originals/original3zoomed.jpg" alt="" aria-hidden="true" loading="lazy">
+          <span class="originals__badge"><span class="lang-en">Sold</span><span class="lang-ja">売約済み</span></span>
+        </div>
+        <div class="originals__caption">
+          <h3 class="originals__title">Original 03</h3>
+          <span class="originals__price">€250</span>
+        </div>
+        <a class="originals__cta" href="mailto:lioba.roggendorf@gmail.com?subject=Inquiry%20about%20%22Original%2003%22">
+          <span class="lang-en">Inquire about original</span><span class="lang-ja">この作品について問い合わせる</span>
+          <span aria-hidden="true">→</span>
+        </a>
+        <span class="originals__sold-label"><span class="lang-en">Sold</span><span class="lang-ja">売約済み</span></span>
+      </article>
+
+      <article class="originals__item" data-sold="false">
+        <div class="originals__media">
+          <img class="originals__img originals__img--base" src="files/originals/original4.jpg" alt="Original 04" loading="lazy">
+          <img class="originals__img originals__img--zoom" src="files/originals/original4zoomed.jpg" alt="" aria-hidden="true" loading="lazy">
+          <span class="originals__badge"><span class="lang-en">Sold</span><span class="lang-ja">売約済み</span></span>
+        </div>
+        <div class="originals__caption">
+          <h3 class="originals__title">Original 04</h3>
+          <span class="originals__price">€250</span>
+        </div>
+        <a class="originals__cta" href="mailto:lioba.roggendorf@gmail.com?subject=Inquiry%20about%20%22Original%2004%22">
+          <span class="lang-en">Inquire about original</span><span class="lang-ja">この作品について問い合わせる</span>
+          <span aria-hidden="true">→</span>
+        </a>
+        <span class="originals__sold-label"><span class="lang-en">Sold</span><span class="lang-ja">売約済み</span></span>
+      </article>
+
+      <article class="originals__item" data-sold="false">
+        <div class="originals__media">
+          <img class="originals__img originals__img--base" src="files/originals/original5.jpg" alt="Original 05" loading="lazy">
+          <img class="originals__img originals__img--zoom" src="files/originals/original5zoomed.jpg" alt="" aria-hidden="true" loading="lazy">
+          <span class="originals__badge"><span class="lang-en">Sold</span><span class="lang-ja">売約済み</span></span>
+        </div>
+        <div class="originals__caption">
+          <h3 class="originals__title">Original 05</h3>
+          <span class="originals__price">€250</span>
+        </div>
+        <a class="originals__cta" href="mailto:lioba.roggendorf@gmail.com?subject=Inquiry%20about%20%22Original%2005%22">
+          <span class="lang-en">Inquire about original</span><span class="lang-ja">この作品について問い合わせる</span>
+          <span aria-hidden="true">→</span>
+        </a>
+        <span class="originals__sold-label"><span class="lang-en">Sold</span><span class="lang-ja">売約済み</span></span>
+      </article>
+
+      <article class="originals__item" data-sold="false">
+        <div class="originals__media">
+          <img class="originals__img originals__img--base" src="files/originals/original6.jpg" alt="Original 06" loading="lazy">
+          <img class="originals__img originals__img--zoom" src="files/originals/original6zoomed.jpg" alt="" aria-hidden="true" loading="lazy">
+          <span class="originals__badge"><span class="lang-en">Sold</span><span class="lang-ja">売約済み</span></span>
+        </div>
+        <div class="originals__caption">
+          <h3 class="originals__title">Original 06</h3>
+          <span class="originals__price">€250</span>
+        </div>
+        <a class="originals__cta" href="mailto:lioba.roggendorf@gmail.com?subject=Inquiry%20about%20%22Original%2006%22">
+          <span class="lang-en">Inquire about original</span><span class="lang-ja">この作品について問い合わせる</span>
+          <span aria-hidden="true">→</span>
+        </a>
+        <span class="originals__sold-label"><span class="lang-en">Sold</span><span class="lang-ja">売約済み</span></span>
+      </article>
+
+      <article class="originals__item" data-sold="true">
+        <div class="originals__media">
+          <img class="originals__img originals__img--base" src="files/originals/original7.jpg" alt="Original 07" loading="lazy">
+          <img class="originals__img originals__img--zoom" src="files/originals/original7zoomed.jpg" alt="" aria-hidden="true" loading="lazy">
+          <span class="originals__badge"><span class="lang-en">Sold</span><span class="lang-ja">売約済み</span></span>
+        </div>
+        <div class="originals__caption">
+          <h3 class="originals__title">Original 07</h3>
+          <span class="originals__price">€250</span>
+        </div>
+        <a class="originals__cta" href="mailto:lioba.roggendorf@gmail.com?subject=Inquiry%20about%20%22Original%2007%22">
+          <span class="lang-en">Inquire about original</span><span class="lang-ja">この作品について問い合わせる</span>
+          <span aria-hidden="true">→</span>
+        </a>
+        <span class="originals__sold-label"><span class="lang-en">Sold</span><span class="lang-ja">売約済み</span></span>
+      </article>
+
+      <article class="originals__item" data-sold="false">
+        <div class="originals__media">
+          <img class="originals__img originals__img--base" src="files/originals/original8.jpg" alt="Original 08" loading="lazy">
+          <img class="originals__img originals__img--zoom" src="files/originals/original8zoomed.jpg" alt="" aria-hidden="true" loading="lazy">
+          <span class="originals__badge"><span class="lang-en">Sold</span><span class="lang-ja">売約済み</span></span>
+        </div>
+        <div class="originals__caption">
+          <h3 class="originals__title">Original 08</h3>
+          <span class="originals__price">€250</span>
+        </div>
+        <a class="originals__cta" href="mailto:lioba.roggendorf@gmail.com?subject=Inquiry%20about%20%22Original%2008%22">
+          <span class="lang-en">Inquire about original</span><span class="lang-ja">この作品について問い合わせる</span>
+          <span aria-hidden="true">→</span>
+        </a>
+        <span class="originals__sold-label"><span class="lang-en">Sold</span><span class="lang-ja">売約済み</span></span>
+      </article>
+
+      <article class="originals__item" data-sold="false">
+        <div class="originals__media">
+          <img class="originals__img originals__img--base" src="files/originals/original9.jpg" alt="Original 09" loading="lazy">
+          <img class="originals__img originals__img--zoom" src="files/originals/original9zoomed.jpg" alt="" aria-hidden="true" loading="lazy">
+          <span class="originals__badge"><span class="lang-en">Sold</span><span class="lang-ja">売約済み</span></span>
+        </div>
+        <div class="originals__caption">
+          <h3 class="originals__title">Original 09</h3>
+          <span class="originals__price">€250</span>
+        </div>
+        <a class="originals__cta" href="mailto:lioba.roggendorf@gmail.com?subject=Inquiry%20about%20%22Original%2009%22">
+          <span class="lang-en">Inquire about original</span><span class="lang-ja">この作品について問い合わせる</span>
+          <span aria-hidden="true">→</span>
+        </a>
+        <span class="originals__sold-label"><span class="lang-en">Sold</span><span class="lang-ja">売約済み</span></span>
+      </article>
+
+      <article class="originals__item" data-sold="false">
+        <div class="originals__media">
+          <img class="originals__img originals__img--base" src="files/originals/original10.jpg" alt="Original 10" loading="lazy">
+          <img class="originals__img originals__img--zoom" src="files/originals/original10zoomed.jpg" alt="" aria-hidden="true" loading="lazy">
+          <span class="originals__badge"><span class="lang-en">Sold</span><span class="lang-ja">売約済み</span></span>
+        </div>
+        <div class="originals__caption">
+          <h3 class="originals__title">Original 10</h3>
+          <span class="originals__price">€250</span>
+        </div>
+        <a class="originals__cta" href="mailto:lioba.roggendorf@gmail.com?subject=Inquiry%20about%20%22Original%2010%22">
+          <span class="lang-en">Inquire about original</span><span class="lang-ja">この作品について問い合わせる</span>
+          <span aria-hidden="true">→</span>
+        </a>
+        <span class="originals__sold-label"><span class="lang-en">Sold</span><span class="lang-ja">売約済み</span></span>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ================= NEWSLETTER ================= -->
+  <section id="newsletter">
+    <div class="newsletter__inner">
+      <h2>
+        <span class="lang-en">Join the Studio.</span>
+        <span class="lang-ja">新作情報を受け取る！</span>
+      </h2>
+      <p>
+        <span class="lang-en">Join the studio list for exclusive early notifications and the stories behind new pieces!<br> No spam. Unsubscribe anytime.</span>
+        <span class="lang-ja">新しいコレクションやワークショップをいち早くお届けします。</span>
+      </p>
+      <form id="newsletter-form" action="#" method="post">
+        <input
+          type="email"
+          name="EMAIL"
+          id="newsletter-email"
+          required
+          placeholder="Your email"
+          data-placeholder-en="Your email"
+          data-placeholder-ja="メールアドレス"
+          autocomplete="email">
+        <button type="submit" aria-label="Subscribe">
+          <span aria-hidden="true">→</span>
+        </button>
+      </form>
+      <p id="newsletter-feedback" role="status"></p>
+    </div>
+  </section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer id="site-footer">
+  <div class="site-footer__inner">
+    <a href="index.html#top" class="logo">
+      <span class="lang-en">Lioba Roggendorf</span>
+      <span class="lang-ja">ロッゲンドルフ・リオバ</span>
+    </a>
+    <nav class="site-footer__nav">
+      <a href="index.html#top"><span class="lang-en">Home</span><span class="lang-ja">ホーム</span></a>
+      <a href="originals.html"><span class="lang-en">Originals</span><span class="lang-ja">オリジナル作品</span></a>
+      <a href="prints.html"><span class="lang-en">Prints</span><span class="lang-ja">プリント</span></a>
+      <a href="index.html#statement"><span class="lang-en">About</span><span class="lang-ja">アバウト</span></a>
+      <a href="index.html#contact"><span class="lang-en">Contact</span><span class="lang-ja">お問い合わせ</span></a>
+    </nav>
+    <button type="button" id="back-to-top" aria-label="Back to top">↑</button>
+  </div>
+  <div class="site-footer__bottom">
+    <span id="footer-year"></span>
+    <span class="lang-en">Lioba Roggendorf. All rights reserved.</span>
+    <span class="lang-ja">ロッゲンドルフ・リオバ。All rights reserved.</span>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
