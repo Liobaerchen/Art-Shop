@@ -22,7 +22,7 @@
   <div class="utility-bar__inner">
     <span class="utility-bar__note">
       <span class="lang-en">Based in Berlin / Amsterdam / Tokyo</span>
-      <span class="lang-ja">拠点：<!-- ✍️ ART TEXT: 都市・国名（任意） --></span>
+      <span class="lang-ja">拠点：ベルリン / アムステルダム / 東京</span>
     </span>
     <div class="lang-switch" role="group" aria-label="Language">
       <button type="button" class="lang-switch__btn" data-lang-btn="en" aria-pressed="true">EN</button>
@@ -129,224 +129,199 @@
 
       <!-- =====================================================================
            TEMPLATE — copy this whole <article> block to add a new original.
-           1. Bump the number everywhere (original11.jpg, alt text, etc.)
+           1. Bump the number everywhere (hawks13.jpg, alt text, etc.)
            2. Set data-sold="false" while it's for sale, or "true" once it sells —
               that one attribute controls the badge, the dimmed image, and the
               CTA button all at once. Nothing else needs to change.
            3. Files expected in /files/originals/:
-                originalN.jpg         (grid + base hover image)
-                originalNzoomed.jpg   (shown on hover — a closer crop/detail)
+                hawksN.jpg          (grid + base hover image + hero photo)
+                hawksNangle.jpg     (angled view — used in the product gallery)
+                hawksNdetail1.jpg   (detail shot — used in the product gallery)
+                hawksNdetail2.jpg   (closest detail — shown on grid hover)
 
       <article class="originals__item" data-sold="false">
-        <div class="originals__media">
-          <img class="originals__img originals__img--base" src="files/originals/originalN.jpg" alt="Title of the piece" loading="lazy">
-          <img class="originals__img originals__img--zoom" src="files/originals/originalNzoomed.jpg" alt="" aria-hidden="true" loading="lazy">
-          <span class="originals__badge">
-            <span class="lang-en">Sold</span><span class="lang-ja">売約済み</span>
-          </span>
-        </div>
-        <div class="originals__caption">
-          <h3 class="originals__title">Title of the piece</h3>
-          <span class="originals__price">€000</span>
-        </div>
-        <a class="originals__cta" href="mailto:lioba.roggendorf@gmail.com?subject=Inquiry%20about%20%22Title%20of%20the%20piece%22">
-          <span class="lang-en">Inquire about original</span><span class="lang-ja">この作品について問い合わせる</span>
-          <span aria-hidden="true">→</span>
+        <a href="original-N.html">
+          <div class="originals__media">
+            <img class="originals__img originals__img--base" src="files/originals/hawksN.jpg" alt="Original N" loading="lazy">
+            <img class="originals__img originals__img--zoom" src="files/originals/hawksNdetail2.jpg" alt="" aria-hidden="true" loading="lazy">
+            <span class="originals__badge">
+              <span class="lang-en">Sold</span><span class="lang-ja">売約済み</span>
+            </span>
+          </div>
         </a>
-        <span class="originals__sold-label">
-          <span class="lang-en">Sold</span><span class="lang-ja">売約済み</span>
-        </span>
+        <div class="originals__caption">
+          <h3 class="originals__title">Original N</h3>
+          <span class="originals__price">€250</span>
+        </div>
       </article>
       ===================================================================== -->
 
       <article class="originals__item" data-sold="false">
-                <a href="original-1.html">
+        <a href="original-1.html">
           <div class="originals__media">
-                    <img class="originals__img originals__img--base" src="files/originals/original1.jpg" alt="Original 01" loading="lazy">
-                    <img class="originals__img originals__img--zoom" src="files/originals/original1zoomed.jpg" alt="" aria-hidden="true" loading="lazy">
-                    <span class="originals__badge"><span class="lang-en">Sold</span><span class="lang-ja">売約済み</span></span>
-                  </div>
+            <img class="originals__img originals__img--base" src="files/originals/hawks1.jpg" alt="Original 01" loading="lazy">
+            <img class="originals__img originals__img--zoom" src="files/originals/hawks1detail1.jpg" alt="" aria-hidden="true" loading="lazy">
+            <span class="originals__badge"><span class="lang-en">Sold</span><span class="lang-ja">売約済み</span></span>
+          </div>
         </a>
         <div class="originals__caption">
           <h3 class="originals__title">Original 01</h3>
           <span class="originals__price">€250</span>
         </div>
-        <a class="originals__cta" href="mailto:lioba.roggendorf@gmail.com?subject=Inquiry%20about%20%22Original%2001%22">
-          <span class="lang-en">Inquire about original</span><span class="lang-ja">この作品について問い合わせる</span>
-          <span aria-hidden="true">→</span>
-        </a>
-        <span class="originals__sold-label"><span class="lang-en">Sold</span><span class="lang-ja">売約済み</span></span>
       </article>
 
       <article class="originals__item" data-sold="false">
-                <a href="original-2.html">
+        <a href="original-2.html">
           <div class="originals__media">
-                    <img class="originals__img originals__img--base" src="files/originals/original2.jpg" alt="Original 02" loading="lazy">
-                    <img class="originals__img originals__img--zoom" src="files/originals/original2zoomed.jpg" alt="" aria-hidden="true" loading="lazy">
-                    <span class="originals__badge"><span class="lang-en">Sold</span><span class="lang-ja">売約済み</span></span>
-                  </div>
+            <img class="originals__img originals__img--base" src="files/originals/hawks2.jpg" alt="Original 02" loading="lazy">
+            <img class="originals__img originals__img--zoom" src="files/originals/hawks2detail1.jpg" alt="" aria-hidden="true" loading="lazy">
+            <span class="originals__badge"><span class="lang-en">Sold</span><span class="lang-ja">売約済み</span></span>
+          </div>
         </a>
         <div class="originals__caption">
           <h3 class="originals__title">Original 02</h3>
           <span class="originals__price">€250</span>
         </div>
-        <a class="originals__cta" href="mailto:lioba.roggendorf@gmail.com?subject=Inquiry%20about%20%22Original%2002%22">
-          <span class="lang-en">Inquire about original</span><span class="lang-ja">この作品について問い合わせる</span>
-          <span aria-hidden="true">→</span>
-        </a>
-        <span class="originals__sold-label"><span class="lang-en">Sold</span><span class="lang-ja">売約済み</span></span>
       </article>
 
-      <article class="originals__item" data-sold="true">
-                <a href="original-3.html">
+      <article class="originals__item" data-sold="false">
+        <a href="original-3.html">
           <div class="originals__media">
-                    <img class="originals__img originals__img--base" src="files/originals/original3.jpg" alt="Original 03" loading="lazy">
-                    <img class="originals__img originals__img--zoom" src="files/originals/original3zoomed.jpg" alt="" aria-hidden="true" loading="lazy">
-                    <span class="originals__badge"><span class="lang-en">Sold</span><span class="lang-ja">売約済み</span></span>
-                  </div>
+            <img class="originals__img originals__img--base" src="files/originals/hawks3.jpg" alt="Original 03" loading="lazy">
+            <img class="originals__img originals__img--zoom" src="files/originals/hawks3detail1.jpg" alt="" aria-hidden="true" loading="lazy">
+            <span class="originals__badge"><span class="lang-en">Sold</span><span class="lang-ja">売約済み</span></span>
+          </div>
         </a>
         <div class="originals__caption">
           <h3 class="originals__title">Original 03</h3>
           <span class="originals__price">€250</span>
         </div>
-        <a class="originals__cta" href="mailto:lioba.roggendorf@gmail.com?subject=Inquiry%20about%20%22Original%2003%22">
-          <span class="lang-en">Inquire about original</span><span class="lang-ja">この作品について問い合わせる</span>
-          <span aria-hidden="true">→</span>
-        </a>
-        <span class="originals__sold-label"><span class="lang-en">Sold</span><span class="lang-ja">売約済み</span></span>
       </article>
 
       <article class="originals__item" data-sold="false">
-                <a href="original-4.html">
+        <a href="original-4.html">
           <div class="originals__media">
-                    <img class="originals__img originals__img--base" src="files/originals/original4.jpg" alt="Original 04" loading="lazy">
-                    <img class="originals__img originals__img--zoom" src="files/originals/original4zoomed.jpg" alt="" aria-hidden="true" loading="lazy">
-                    <span class="originals__badge"><span class="lang-en">Sold</span><span class="lang-ja">売約済み</span></span>
-                  </div>
+            <img class="originals__img originals__img--base" src="files/originals/hawks4.jpg" alt="Original 04" loading="lazy">
+            <img class="originals__img originals__img--zoom" src="files/originals/hawks4detail2.jpg" alt="" aria-hidden="true" loading="lazy">
+            <span class="originals__badge"><span class="lang-en">Sold</span><span class="lang-ja">売約済み</span></span>
+          </div>
         </a>
         <div class="originals__caption">
           <h3 class="originals__title">Original 04</h3>
           <span class="originals__price">€250</span>
         </div>
-        <a class="originals__cta" href="mailto:lioba.roggendorf@gmail.com?subject=Inquiry%20about%20%22Original%2004%22">
-          <span class="lang-en">Inquire about original</span><span class="lang-ja">この作品について問い合わせる</span>
-          <span aria-hidden="true">→</span>
-        </a>
-        <span class="originals__sold-label"><span class="lang-en">Sold</span><span class="lang-ja">売約済み</span></span>
       </article>
 
       <article class="originals__item" data-sold="false">
-                <a href="original-5.html">
+        <a href="original-5.html">
           <div class="originals__media">
-                    <img class="originals__img originals__img--base" src="files/originals/original5.jpg" alt="Original 05" loading="lazy">
-                    <img class="originals__img originals__img--zoom" src="files/originals/original5zoomed.jpg" alt="" aria-hidden="true" loading="lazy">
-                    <span class="originals__badge"><span class="lang-en">Sold</span><span class="lang-ja">売約済み</span></span>
-                  </div>
+            <img class="originals__img originals__img--base" src="files/originals/hawks5.jpg" alt="Original 05" loading="lazy">
+            <img class="originals__img originals__img--zoom" src="files/originals/hawks5detail1.jpg" alt="" aria-hidden="true" loading="lazy">
+            <span class="originals__badge"><span class="lang-en">Sold</span><span class="lang-ja">売約済み</span></span>
+          </div>
         </a>
         <div class="originals__caption">
           <h3 class="originals__title">Original 05</h3>
           <span class="originals__price">€250</span>
         </div>
-        <a class="originals__cta" href="mailto:lioba.roggendorf@gmail.com?subject=Inquiry%20about%20%22Original%2005%22">
-          <span class="lang-en">Inquire about original</span><span class="lang-ja">この作品について問い合わせる</span>
-          <span aria-hidden="true">→</span>
-        </a>
-        <span class="originals__sold-label"><span class="lang-en">Sold</span><span class="lang-ja">売約済み</span></span>
       </article>
 
       <article class="originals__item" data-sold="false">
-                <a href="original-6.html">
+        <a href="original-6.html">
           <div class="originals__media">
-                    <img class="originals__img originals__img--base" src="files/originals/original6.jpg" alt="Original 06" loading="lazy">
-                    <img class="originals__img originals__img--zoom" src="files/originals/original6zoomed.jpg" alt="" aria-hidden="true" loading="lazy">
-                    <span class="originals__badge"><span class="lang-en">Sold</span><span class="lang-ja">売約済み</span></span>
-                  </div>
+            <img class="originals__img originals__img--base" src="files/originals/hawks6.jpg" alt="Original 06" loading="lazy">
+            <img class="originals__img originals__img--zoom" src="files/originals/hawks6detail2.jpg" alt="" aria-hidden="true" loading="lazy">
+            <span class="originals__badge"><span class="lang-en">Sold</span><span class="lang-ja">売約済み</span></span>
+          </div>
         </a>
         <div class="originals__caption">
           <h3 class="originals__title">Original 06</h3>
           <span class="originals__price">€250</span>
         </div>
-        <a class="originals__cta" href="mailto:lioba.roggendorf@gmail.com?subject=Inquiry%20about%20%22Original%2006%22">
-          <span class="lang-en">Inquire about original</span><span class="lang-ja">この作品について問い合わせる</span>
-          <span aria-hidden="true">→</span>
-        </a>
-        <span class="originals__sold-label"><span class="lang-en">Sold</span><span class="lang-ja">売約済み</span></span>
       </article>
 
-      <article class="originals__item" data-sold="true">
-                <a href="original-7.html">
+      <article class="originals__item" data-sold="false">
+        <a href="original-7.html">
           <div class="originals__media">
-                    <img class="originals__img originals__img--base" src="files/originals/original7.jpg" alt="Original 07" loading="lazy">
-                    <img class="originals__img originals__img--zoom" src="files/originals/original7zoomed.jpg" alt="" aria-hidden="true" loading="lazy">
-                    <span class="originals__badge"><span class="lang-en">Sold</span><span class="lang-ja">売約済み</span></span>
-                  </div>
+            <img class="originals__img originals__img--base" src="files/originals/hawks7.jpg" alt="Original 07" loading="lazy">
+            <img class="originals__img originals__img--zoom" src="files/originals/hawks7detail2.jpg" alt="" aria-hidden="true" loading="lazy">
+            <span class="originals__badge"><span class="lang-en">Sold</span><span class="lang-ja">売約済み</span></span>
+          </div>
         </a>
         <div class="originals__caption">
           <h3 class="originals__title">Original 07</h3>
           <span class="originals__price">€250</span>
         </div>
-        <a class="originals__cta" href="mailto:lioba.roggendorf@gmail.com?subject=Inquiry%20about%20%22Original%2007%22">
-          <span class="lang-en">Inquire about original</span><span class="lang-ja">この作品について問い合わせる</span>
-          <span aria-hidden="true">→</span>
-        </a>
-        <span class="originals__sold-label"><span class="lang-en">Sold</span><span class="lang-ja">売約済み</span></span>
       </article>
 
       <article class="originals__item" data-sold="false">
-                <a href="original-8.html">
+        <a href="original-8.html">
           <div class="originals__media">
-                    <img class="originals__img originals__img--base" src="files/originals/original8.jpg" alt="Original 08" loading="lazy">
-                    <img class="originals__img originals__img--zoom" src="files/originals/original8zoomed.jpg" alt="" aria-hidden="true" loading="lazy">
-                    <span class="originals__badge"><span class="lang-en">Sold</span><span class="lang-ja">売約済み</span></span>
-                  </div>
+            <img class="originals__img originals__img--base" src="files/originals/hawks8.jpg" alt="Original 08" loading="lazy">
+            <img class="originals__img originals__img--zoom" src="files/originals/hawks8detail1.jpg" alt="" aria-hidden="true" loading="lazy">
+            <span class="originals__badge"><span class="lang-en">Sold</span><span class="lang-ja">売約済み</span></span>
+          </div>
         </a>
         <div class="originals__caption">
           <h3 class="originals__title">Original 08</h3>
           <span class="originals__price">€250</span>
         </div>
-        <a class="originals__cta" href="mailto:lioba.roggendorf@gmail.com?subject=Inquiry%20about%20%22Original%2008%22">
-          <span class="lang-en">Inquire about original</span><span class="lang-ja">この作品について問い合わせる</span>
-          <span aria-hidden="true">→</span>
-        </a>
-        <span class="originals__sold-label"><span class="lang-en">Sold</span><span class="lang-ja">売約済み</span></span>
       </article>
 
       <article class="originals__item" data-sold="false">
-                <a href="original-9.html">
+        <a href="original-9.html">
           <div class="originals__media">
-                    <img class="originals__img originals__img--base" src="files/originals/original9.jpg" alt="Original 09" loading="lazy">
-                    <img class="originals__img originals__img--zoom" src="files/originals/original9zoomed.jpg" alt="" aria-hidden="true" loading="lazy">
-                    <span class="originals__badge"><span class="lang-en">Sold</span><span class="lang-ja">売約済み</span></span>
-                  </div>
+            <img class="originals__img originals__img--base" src="files/originals/hawks9.jpg" alt="Original 09" loading="lazy">
+            <img class="originals__img originals__img--zoom" src="files/originals/hawks9detail1.jpg" alt="" aria-hidden="true" loading="lazy">
+            <span class="originals__badge"><span class="lang-en">Sold</span><span class="lang-ja">売約済み</span></span>
+          </div>
         </a>
         <div class="originals__caption">
           <h3 class="originals__title">Original 09</h3>
           <span class="originals__price">€250</span>
         </div>
-        <a class="originals__cta" href="mailto:lioba.roggendorf@gmail.com?subject=Inquiry%20about%20%22Original%2009%22">
-          <span class="lang-en">Inquire about original</span><span class="lang-ja">この作品について問い合わせる</span>
-          <span aria-hidden="true">→</span>
-        </a>
-        <span class="originals__sold-label"><span class="lang-en">Sold</span><span class="lang-ja">売約済み</span></span>
       </article>
 
       <article class="originals__item" data-sold="false">
-                <a href="original-10.html">
+        <a href="original-10.html">
           <div class="originals__media">
-                    <img class="originals__img originals__img--base" src="files/originals/original10.jpg" alt="Original 10" loading="lazy">
-                    <img class="originals__img originals__img--zoom" src="files/originals/original10zoomed.jpg" alt="" aria-hidden="true" loading="lazy">
-                    <span class="originals__badge"><span class="lang-en">Sold</span><span class="lang-ja">売約済み</span></span>
-                  </div>
+            <img class="originals__img originals__img--base" src="files/originals/hawks10.jpg" alt="Original 10" loading="lazy">
+            <img class="originals__img originals__img--zoom" src="files/originals/hawks10detail2.jpg" alt="" aria-hidden="true" loading="lazy">
+            <span class="originals__badge"><span class="lang-en">Sold</span><span class="lang-ja">売約済み</span></span>
+          </div>
         </a>
         <div class="originals__caption">
           <h3 class="originals__title">Original 10</h3>
           <span class="originals__price">€250</span>
         </div>
-        <a class="originals__cta" href="mailto:lioba.roggendorf@gmail.com?subject=Inquiry%20about%20%22Original%2010%22">
-          <span class="lang-en">Inquire about original</span><span class="lang-ja">この作品について問い合わせる</span>
-          <span aria-hidden="true">→</span>
+      </article>
+
+      <article class="originals__item" data-sold="false">
+        <a href="original-11.html">
+          <div class="originals__media">
+            <img class="originals__img originals__img--base" src="files/originals/hawks11.jpg" alt="Original 11" loading="lazy">
+            <img class="originals__img originals__img--zoom" src="files/originals/hawks11detail2.jpg" alt="" aria-hidden="true" loading="lazy">
+            <span class="originals__badge"><span class="lang-en">Sold</span><span class="lang-ja">売約済み</span></span>
+          </div>
         </a>
-        <span class="originals__sold-label"><span class="lang-en">Sold</span><span class="lang-ja">売約済み</span></span>
+        <div class="originals__caption">
+          <h3 class="originals__title">Original 11</h3>
+          <span class="originals__price">€250</span>
+        </div>
+      </article>
+
+      <article class="originals__item" data-sold="false">
+        <a href="original-12.html">
+          <div class="originals__media">
+            <img class="originals__img originals__img--base" src="files/originals/hawks12.jpg" alt="Original 12" loading="lazy">
+            <img class="originals__img originals__img--zoom" src="files/originals/hawks12detail2.jpg" alt="" aria-hidden="true" loading="lazy">
+            <span class="originals__badge"><span class="lang-en">Sold</span><span class="lang-ja">売約済み</span></span>
+          </div>
+        </a>
+        <div class="originals__caption">
+          <h3 class="originals__title">Original 12</h3>
+          <span class="originals__price">€250</span>
+        </div>
       </article>
 
     </div>

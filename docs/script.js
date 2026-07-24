@@ -231,16 +231,32 @@
 
 /* ==========================================================================
    PRODUCT PAGE — purchase modal ("Inquire about original")
+   Two steps: (1) name/email/shipping address, (2) thank-you + order recap +
+   the actual PayPal.me button. A plain PayPal.me link can't tell this page
+   when payment succeeds (no return-URL support), so step 2 is shown as soon
+   as the buyer submits their details — framed as "here's your order, now
+   complete payment," not as a verified "payment confirmed" claim.
    ========================================================================== */
 (function () {
   var openBtns = document.querySelectorAll('[data-open-modal]');
   var overlay = document.querySelector('.modal-overlay');
   if (!openBtns.length || !overlay) return;
   var closeBtn = overlay.querySelector('.modal__close');
+  var step1 = overlay.querySelector('[data-step="1"]');
+  var step2 = overlay.querySelector('[data-step="2"]');
+  var form = overlay.querySelector('[data-order-form]');
+  var errorEl = overlay.querySelector('[data-order-error]');
 
+  function showStep1() {
+    if (!step1 || !step2) return;
+    step1.classList.add('is-active');
+    step2.classList.remove('is-active');
+    if (errorEl) errorEl.classList.remove('is-visible');
+  }
   function open() {
     overlay.classList.add('is-open');
     document.body.classList.add('modal-open');
+    showStep1(); // always start fresh
   }
   function close() {
     overlay.classList.remove('is-open');
@@ -255,6 +271,53 @@
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') close();
   });
+
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var nameField = form.querySelector('[data-order-name]');
+      var emailField = form.querySelector('[data-order-email]');
+      var addressField = form.querySelector('[data-order-address]');
+      var name = nameField.value.trim();
+      var email = emailField.value.trim();
+      var address = addressField.value.trim();
+
+      if (!name || !email || !address) {
+        if (errorEl) errorEl.classList.add('is-visible');
+        return;
+      }
+      if (errorEl) errorEl.classList.remove('is-visible');
+
+      // fill the recap shown in step 2
+      var recapName = overlay.querySelector('[data-recap-name]');
+      var recapAddress = overlay.querySelector('[data-recap-address]');
+      var recapEmail = overlay.querySelector('[data-recap-email]');
+      if (recapName) recapName.textContent = name;
+      if (recapAddress) recapAddress.textContent = address;
+      if (recapEmail) recapEmail.textContent = email;
+
+      // 🔌 Sends you the order by opening a pre-filled email in the buyer's own
+      // mail app (same no-backend approach used everywhere else on the site).
+      // If their mail app doesn't open automatically, the compose window is
+      // still sitting there ready — they just need to hit send.
+      var openBtn = document.querySelector('[data-open-modal]');
+      var pieceTitle = (openBtn && openBtn.dataset.title) || document.title;
+      var piecePrice = (openBtn && openBtn.dataset.price) || '';
+      var subject = 'New order — ' + pieceTitle;
+      var body = 'New order from the website:\n\n' +
+                 'Piece: ' + pieceTitle + (piecePrice ? ' (' + piecePrice + ')' : '') + '\n' +
+                 'Name: ' + name + '\n' +
+                 'Email: ' + email + '\n' +
+                 'Shipping address:\n' + address;
+      var mailtoUrl = 'mailto:lioba.roggendorf@gmail.com'
+        + '?subject=' + encodeURIComponent(subject)
+        + '&body=' + encodeURIComponent(body);
+      window.location.href = mailtoUrl;
+
+      step1.classList.remove('is-active');
+      step2.classList.add('is-active');
+    });
+  }
 })();
 
 /* ==========================================================================
