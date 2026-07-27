@@ -2035,19 +2035,50 @@ body.modal-open{ overflow: hidden; }
 .about-photo-caption.is-visible{ opacity: 1; }
 .about-photo-caption::before{ content: "+ "; }
 
+.about-photo-caption::before{ content: "+ "; }
+
+/* desktop: wrapper is invisible, its six children slot directly into the
+   outer 5x5 grid exactly as before — nothing changes here */
+.about-photo-grid{ display: contents; }
+
 @media(max-width: 1080px){
   .about-hero__layout{
     display: block;
     height: auto;
     background-image: none;
   }
-  .about-photo-slot{ display: none; }
-  .about-photo-caption{ display: none; }
   .about-hero__text-block{ padding: 0; }
   .about-hero__line:nth-of-type(2),
   .about-hero__line:nth-of-type(3),
   .about-hero__line:nth-of-type(4){ margin-left: 0; }
   .about-meta{ gap: 24px; }
+
+  /* the grid, reborn at mobile scale: a real (non-"contents") grid container
+     now, sized to the screen, holding the same six photo slots */
+  .about-photo-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 8px;
+    aspect-ratio: 3 / 2;
+    margin-top: clamp(36px, 7vh, 56px);
+    background-image:
+      repeating-linear-gradient(to right, var(--grey-line) 0 1px, transparent 1px calc(100% / 3)),
+      repeating-linear-gradient(to bottom, var(--grey-line) 0 1px, transparent 1px calc(100% / 2));
+  }
+  .about-photo-slot{
+    display: block;
+    grid-column: auto !important; /* override the desktop-only inline placement */
+    grid-row: auto !important;
+  }
+  .about-photo-caption{
+    display: block;
+    position: static;
+    margin-top: 14px;
+    text-align: center;
+    background: none;
+    padding: 0;
+  }
 }
 @media(prefers-reduced-motion: reduce){
   .about-photo-slot{ transition: none; }

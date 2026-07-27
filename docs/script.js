@@ -62,18 +62,34 @@
 
 /* ==========================================================================
    Newsletter form
-   🔌 Replace this handler with your email provider's own submit logic
-   (Mailchimp / ConvertKit / Etsy / Flodesk all provide a form action + a
-   snippet like this — swap this whole block out once you have one).
+   🔌 Sends each signup to a Google Sheet via a Google Apps Script "Web App"
+   endpoint — see the setup notes in the message this came with for how to
+   create SHEET_ENDPOINT. Until that's filled in, this still shows the
+   "thanks" message but doesn't save anything anywhere.
    ========================================================================== */
 (function () {
   var form = document.getElementById('newsletter-form');
   var feedback = document.getElementById('newsletter-feedback');
   if (!form) return;
 
+  var SHEET_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzY4Eu9mZKGiG5tNuRaHzTF4KuUdVkNzAMclt7o-BT1ucUZDG4nRFdEUg7qSqkdF2x-AQ/exec';
+
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     var lang = document.documentElement.getAttribute('data-lang');
+
+    if (SHEET_ENDPOINT.indexOf('PASTE_YOUR') !== 0) {
+      // "no-cors" means we can't read a real success/failure response back —
+      // that's a Google Apps Script limitation, not something fixable from
+      // here. The request still goes through; we just show the "thanks"
+      // message optimistically rather than waiting to confirm it.
+      fetch(SHEET_ENDPOINT, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: new FormData(form)
+      }).catch(function () { /* fails silently — network/offline, nothing to do here */ });
+    }
+
     feedback.textContent = lang === 'ja'
       ? 'ありがとうございます！登録が完了しました。'
       : "Thanks — you're on the list.";
