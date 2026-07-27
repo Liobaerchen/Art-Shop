@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Lioba Roggendorf</title>
+<meta name="description" content="Lioba Roggendorf — watercolor artist based in Berlin, previously Amsterdam and Tokyo.">
+
+<link rel="icon" type="image/png" href="files/favicon.png">
+<link rel="apple-touch-icon" href="files/favicon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="utility-bar">
+  <div class="utility-bar__inner">
+    <span class="utility-bar__note">
+      <span class="lang-en">Based in Berlin / Amsterdam / Tokyo</span>
+      <span class="lang-ja">拠点：ベルリン / アムステルダム / 東京</span>
+    </span>
+    <div class="lang-switch" role="group" aria-label="Language">
+      <button type="button" class="lang-switch__btn" data-lang-btn="en" aria-pressed="true">EN</button>
+      <span class="lang-switch__divider">/</span>
+      <button type="button" class="lang-switch__btn" data-lang-btn="ja" aria-pressed="false">日本語</button>
+    </div>
+  </div>
+</div>
+
+<header id="site-header">
+  <div class="site-header__inner">
+    <a href="index.html#top" class="logo">
+      <img src="files/favicon.png" alt="Lioba Roggendorf logo" class="logo__icon">
+      <span class="logo__text">
+        <span class="lang-en">Lioba Roggendorf</span>
+        <span class="lang-ja">ロッゲンドルフ・リオバ</span>
+      </span>
+    </a>
+
+    <nav class="nav" id="primary-nav">
+      <a href="index.html#top" class="nav__link"><span class="lang-en">Home</span><span class="lang-ja">ホーム</span></a>
+      <a href="originals.html" class="nav__link"><span class="lang-en">Originals</span><span class="lang-ja">オリジナル作品</span></a>
+      <a href="prints.html" class="nav__link"><span class="lang-en">Prints</span><span class="lang-ja">プリント</span></a>
+      <a href="about.html" class="nav__link --active"><span class="lang-en">About</span><span class="lang-ja">アバウト</span></a>
+      <a href="index.html#contact" class="nav__link"><span class="lang-en">Contact</span><span class="lang-ja">お問い合わせ</span></a>
+    </nav>
+
+    <div class="site-header__right">
+      <a href="originals.html" class="pill-btn">
+        <span class="lang-en">Shop Originals</span><span class="lang-ja">作品を見る</span>
+        <span class="pill-btn__arrow" aria-hidden="true">→</span>
+      </a>
+      <button type="button" id="menu-toggle" aria-label="Menu" aria-expanded="false">
+        <span class="menu-toggle__text"><span class="lang-en">Menu</span><span class="lang-ja">メニュー</span></span>
+        <span class="menu-toggle__dots"><i></i><i></i></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div id="mobile-menu">
+  <nav class="mobile-menu__links">
+    <a href="index.html#top" data-close-menu><span class="lang-en">Home</span><span class="lang-ja">ホーム</span></a>
+    <a href="originals.html" data-close-menu><span class="lang-en">Originals</span><span class="lang-ja">オリジナル作品</span></a>
+    <a href="prints.html" data-close-menu><span class="lang-en">Prints</span><span class="lang-ja">プリント</span></a>
+    <a href="about.html" data-close-menu><span class="lang-en">About</span><span class="lang-ja">アバウト</span></a>
+    <a href="index.html#contact" data-close-menu><span class="lang-en">Contact</span><span class="lang-ja">お問い合わせ</span></a>
+  </nav>
+  <div class="mobile-menu__newsletter">
+    <p class="lang-en">Join the Studio for new release updates!</p>
+    <p class="lang-ja">スタジオに参加して、新作情報を受け取る！</p>
+  </div>
+</div>
+
+<main id="top">
+
+  <!-- ================= COLLAGE HERO ================= -->
+  <section id="about-hero">
+    <p class="eyebrow">
+      <span class="eyebrow__mark" aria-hidden="true">+</span>
+      <span class="lang-en">About</span>
+      <span class="lang-ja">アバウト</span>
+    </p>
+
+    <div class="about-hero__layout">
+
+      <!-- 🖼️ Six photo "slots," placed at fixed positions in the grid's outer
+           ring. script.js fills them one at a time (not all at once) with
+           every photo from one files/about/ colour folder, holds the grid
+           full for a moment, clears them one at a time, then moves to the
+           next folder. The other ring cells stay empty on purpose — just
+           the grid lines — so the six that do light up read clearly.
+           Heads up: a few filenames elsewhere in that folder look like saved
+           reference images of other artists' work (Hopper, Richter, Kollwitz,
+           Caillebotte, etc.) rather than your own photography — I avoided all
+           of those in the picks script.js uses. -->
+      <figure class="about-photo-slot" data-slot="0" style="grid-column:2/3; grid-row:1/2;"><img src="" alt=""></figure>
+      <figure class="about-photo-slot" data-slot="1" style="grid-column:4/5; grid-row:1/2;"><img src="" alt=""></figure>
+      <figure class="about-photo-slot" data-slot="2" style="grid-column:5/6; grid-row:3/4;"><img src="" alt=""></figure>
+      <figure class="about-photo-slot" data-slot="3" style="grid-column:4/5; grid-row:5/6;"><img src="" alt=""></figure>
+      <figure class="about-photo-slot" data-slot="4" style="grid-column:2/3; grid-row:5/6;"><img src="" alt=""></figure>
+      <figure class="about-photo-slot" data-slot="5" style="grid-column:1/2; grid-row:3/4;"><img src="" alt=""></figure>
+
+      <div class="about-hero__text-block">
+        <h1 class="about-hero__statement">
+          <span class="lang-en">
+            <span class="about-hero__line">I make watercolour paintings</span>
+            <span class="about-hero__line">of the lives surrounding me</span>
+            <span class="about-hero__line">in the cities I have lived in:</span>
+            <span class="about-hero__line">Tokyo, Amsterdam, and Berlin.</span>
+          </span>
+          <span class="lang-ja">
+            <span class="about-hero__line">これまで暮らしてきた都市――</span>
+            <span class="about-hero__line">東京、アムステルダム、ベルリン――で、</span>
+            <span class="about-hero__line">そこに生きる人々の日々を</span>
+            <span class="about-hero__line">水彩画として描いています。</span>
+          </span>
+        </h1>
+
+        <div class="about-meta">
+          <div class="about-meta__item">
+            <span class="k lang-en">Name</span><span class="k lang-ja">お名前</span>
+            <span class="v lang-en">Lioba Roggendorf</span><span class="v lang-ja">ロッゲンドルフ・リオバ</span>
+          </div>
+          <div class="about-meta__item">
+            <span class="k lang-en">Based in</span><span class="k lang-ja">拠点</span>
+            <span class="v">Berlin</span>
+          </div>
+          <div class="about-meta__item">
+            <span class="k lang-en">Previously</span><span class="k lang-ja">以前の拠点</span>
+            <span class="v lang-en">Amsterdam, Tokyo</span><span class="v lang-ja">アムステルダム、東京</span>
+          </div>
+        </div>
+      </div>
+
+      <span class="about-photo-caption" data-photo-caption></span>
+    </div>
+  </section>
+
+  <!-- ================= REST OF STATEMENT ================= -->
+  <section id="about-statement">
+    <div class="about-statement__layout">
+      <p class="eyebrow">
+        <span class="eyebrow__mark" aria-hidden="true">+</span>
+        <span class="lang-en">In My Words</span>
+        <span class="lang-ja">私の言葉で</span>
+      </p>
+      <div class="about-statement__text">
+      <p>
+        <span class="lang-en">When we really look at each other, I believe we can't help but imagine each other at least a little bit. Finding the calm it takes to wonder about others is precious to me.</span>
+        <span class="lang-ja">私たちは互いを本当に見つめるとき、少なくとも少しは相手のことを想像せずにはいられないのではないかと思います。誰かに思いを巡らせるための静けさを見つけることは、私にとって大切なことです。</span>
+      </p>
+      <p>
+        <span class="lang-en">So, I carry a sketchbook everywhere I go and note down moments, poems, music, and the scenes and people that make me wonder. When I get home, I carefully sketch out a composition and choose a palette. But all that planning stops when I start the watercolour process: I love experimenting with the movements of water and pigment, and I try to leave the material visible.</span>
+        <span class="lang-ja">そのため、どこへ行くにもスケッチブックを持ち歩き、心に残った瞬間や詩、音楽、そして想像をかき立てる風景や人々を書き留めています。家に帰ると、構図を描き出し、色彩の組み合わせを選びます。けれど、水彩の工程に入った途端、そうした計画はすべて止まります――水と顔料の動きを試すことが好きで、その素材そのものの気配を残すようにしています。</span>
+      </p>
+      <p>
+        <span class="lang-en">If these paintings can be a space for you to wonder about the people around yourself, too, they have done what I hoped they would.</span>
+        <span class="lang-ja">これらの絵が、見る人自身もまた、周りにいる人々へ思いを巡らせるための空間となれたなら、それは作品に込めた願いが届いたということです。</span>
+      </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOLLOW / SOCIALS ================= -->
+  <section id="about-follow">
+    <p class="eyebrow eyebrow--centered">
+      <span class="eyebrow__mark" aria-hidden="true">+</span>
+      <span class="lang-en">Follow Along</span>
+      <span class="lang-ja">フォローする</span>
+    </p>
+
+    <a href="https://lio.schrotie.de/" target="_blank" rel="noopener" class="pill-btn about-follow__blog">
+      <span class="lang-en">Read my blog about my time in Japan</span>
+      <span class="lang-ja">日本での日々についてのブログを読む</span>
+      <span class="pill-btn__arrow" aria-hidden="true">→</span>
+    </a>
+
+    <div class="about-follow__links">
+      <!-- 🔗 Replace # with your real profile links -->
+      <a href="#" class="about-follow__icon" aria-label="Instagram">
+        <span class="sr-only">Instagram</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+          <rect x="3" y="3" width="18" height="18" rx="5"/>
+          <circle cx="12" cy="12" r="4.2"/>
+          <circle cx="17.4" cy="6.6" r="0.9" fill="currentColor" stroke="none"/>
+        </svg>
+      </a>
+      <a href="#" class="about-follow__icon" aria-label="TikTok">
+        <span class="sr-only">TikTok</span>
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M14 3c.4 2.1 1.8 3.6 4 3.9v2.6c-1.4 0-2.8-.4-4-1.2v6.4c0 3-2.4 5.3-5.3 5.3S3.3 17.7 3.3 14.8 5.7 9.5 8.6 9.5c.4 0 .8 0 1.1.1v2.7c-.3-.1-.7-.2-1.1-.2-1.5 0-2.7 1.2-2.7 2.7s1.2 2.7 2.7 2.7 2.8-1.2 2.8-2.7V3h2.6z"/>
+        </svg>
+      </a>
+      <a href="#" class="about-follow__icon" aria-label="YouTube">
+        <span class="sr-only">YouTube</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+          <rect x="2.5" y="6" width="19" height="12" rx="4"/>
+          <path d="M10.5 9.5l5 2.5-5 2.5z" fill="currentColor" stroke="none"/>
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- ================= STUDIO REVEAL ================= -->
+  <!-- 🖼️ Reuses files/processPhoto.jpg (already on your kept-files list) —
+       swap for a different studio/portrait shot any time. As you scroll
+       through this section, the white overlay fades away and the photo
+       fully emerges; by the end of the section it's the only thing on
+       screen, no text. -->
+  <section id="studio-reveal">
+    <div class="studio-reveal__sticky">
+      <div class="studio-reveal__photo">
+        <img src="files/processPhoto.jpg" alt="Lioba Roggendorf in her studio">
+      </div>
+      <div class="studio-reveal__overlay"></div>
+    </div>
+  </section>
+
+  <!-- ================= NEWSLETTER ================= -->
+  <section id="newsletter">
+    <div class="newsletter__inner">
+      <h2>
+        <span class="lang-en">Join the Studio.</span>
+        <span class="lang-ja">スタジオに参加する。</span>
+      </h2>
+      <p>
+        <span class="lang-en">Join the studio list for exclusive early notifications and the stories behind new pieces!<br> No spam. Unsubscribe anytime.</span>
+        <span class="lang-ja">新作の先行案内や、その背景にあるストーリーをいち早くお届けします！<br>スパムは一切なく、いつでも配信停止できます。</span>
+      </p>
+      <form id="newsletter-form" action="#" method="post">
+        <input
+          type="email"
+          name="EMAIL"
+          id="newsletter-email"
+          required
+          placeholder="Your email"
+          data-placeholder-en="Your email"
+          data-placeholder-ja="メールアドレス"
+          autocomplete="email">
+        <button type="submit" aria-label="Subscribe">
+          <span aria-hidden="true">→</span>
+        </button>
+      </form>
+      <p id="newsletter-feedback" role="status"></p>
+    </div>
+  </section>
+
+</main>
+
+<footer id="site-footer">
+  <div class="site-footer__inner">
+    <a href="index.html#top" class="logo">
+      <span class="lang-en">Lioba Roggendorf</span>
+      <span class="lang-ja">ロッゲンドルフ・リオバ</span>
+    </a>
+    <nav class="site-footer__nav">
+      <a href="index.html#top"><span class="lang-en">Home</span><span class="lang-ja">ホーム</span></a>
+      <a href="originals.html"><span class="lang-en">Originals</span><span class="lang-ja">オリジナル作品</span></a>
+      <a href="prints.html"><span class="lang-en">Prints</span><span class="lang-ja">プリント</span></a>
+      <a href="about.html"><span class="lang-en">About</span><span class="lang-ja">アバウト</span></a>
+      <a href="index.html#contact"><span class="lang-en">Contact</span><span class="lang-ja">お問い合わせ</span></a>
+    </nav>
+    <button type="button" id="back-to-top" aria-label="Back to top">↑</button>
+  </div>
+  <div class="site-footer__bottom">
+    <span id="footer-year"></span>
+    <span class="lang-en">Lioba Roggendorf. All rights reserved.</span>
+    <span class="lang-ja">ロッゲンドルフ・リオバ。All rights reserved.</span>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -49,7 +49,7 @@
       <a href="index.html#top" class="nav__link"><span class="lang-en">Home</span><span class="lang-ja">ホーム</span></a>
       <a href="originals.html" class="nav__link --active"><span class="lang-en">Originals</span><span class="lang-ja">オリジナル作品</span></a>
       <a href="prints.html" class="nav__link"><span class="lang-en">Prints</span><span class="lang-ja">プリント</span></a>
-      <a href="index.html#statement" class="nav__link"><span class="lang-en">About</span><span class="lang-ja">アバウト</span></a>
+      <a href="about.html" class="nav__link"><span class="lang-en">About</span><span class="lang-ja">アバウト</span></a>
       <a href="index.html#contact" class="nav__link"><span class="lang-en">Contact</span><span class="lang-ja">お問い合わせ</span></a>
     </nav>
 
@@ -71,7 +71,7 @@
     <a href="index.html#top" data-close-menu><span class="lang-en">Home</span><span class="lang-ja">ホーム</span></a>
     <a href="originals.html" data-close-menu><span class="lang-en">Originals</span><span class="lang-ja">オリジナル作品</span></a>
     <a href="prints.html" data-close-menu><span class="lang-en">Prints</span><span class="lang-ja">プリント</span></a>
-    <a href="index.html#statement" data-close-menu><span class="lang-en">About</span><span class="lang-ja">アバウト</span></a>
+    <a href="about.html" data-close-menu><span class="lang-en">About</span><span class="lang-ja">アバウト</span></a>
     <a href="index.html#contact" data-close-menu><span class="lang-en">Contact</span><span class="lang-ja">お問い合わせ</span></a>
   </nav>
   <div class="mobile-menu__newsletter">
@@ -100,8 +100,8 @@
 
       <h1 class="product-hero-split__title">
         <!-- ✍️ ART TEXT: give the piece a real title -->
-        <span class="lang-en">Untitled Study</span>
-        <span class="lang-ja">無題の習作</span>
+        <span class="lang-en">Hawk VIII</span>
+        <span class="lang-ja">Hawk VIII</span>
       </h1>
 
       <p class="product-hero-split__subline">
@@ -130,10 +130,10 @@
       </ul>
 
       <div class="product-hero-split__buy">
-        <div class="product-hero-split__price">€250</div>
+        <div class="product-hero-split__price">€160</div>
         <div class="product-hero-split__price-note">
-          <span class="lang-en">Unframed · shipping calculated below</span>
-          <span class="lang-ja">額装なし・送料は下記参照</span>
+          <span class="lang-en">Sold — shown for reference</span>
+          <span class="lang-ja">売約済み（参考としてご覧いただけます）</span>
         </div>
         <div class="product-hero-split__date">
           <!-- ✍️ ART TEXT: when it was painted -->
@@ -142,28 +142,14 @@
         </div>
 
         <div class="product-buy__actions">
-          <button
-            type="button"
-            class="btn-primary"
-            data-open-modal
-            data-title="Original 05 — Untitled Study"
-            data-price="€250"
-          >
-            <span class="lang-en">Inquire about original</span>
-            <span class="lang-ja">この作品について問い合わせる</span>
-          </button>
-          <button
-            type="button"
-            class="btn-secondary"
-            data-add-to-cart
-            data-id="original-5"
-            data-title="Original 05 — Untitled Study"
-            data-price="€250"
-            data-image="files/originals/hawks5.jpg"
-          >
-            <span class="lang-en">Add to cart</span>
-            <span class="lang-ja">カートに入れる</span>
-          </button>
+          <div class="btn-secondary" style="cursor:default;">
+            <span class="lang-en">This piece has been sold</span>
+            <span class="lang-ja">この作品は売約済みです</span>
+          </div>
+          <a class="btn-primary" style="text-decoration:none;" href="mailto:lioba.roggendorf@gmail.com?subject=Interested%20in%20a%20similar%20piece%20to%20%22Original%2005%22">
+            <span class="lang-en">Ask about similar work</span>
+            <span class="lang-ja">似た作品について問い合わせる</span>
+          </a>
         </div>
 
         <div class="product-buy__fineprint">
@@ -212,13 +198,16 @@
         <figure class="hscroll__frame"><img src="files/originals/hawks5angle.jpg" alt="Original 05 — angled view" loading="lazy"></figure>
         <figure class="hscroll__frame"><img src="files/originals/hawks5detail1.jpg" alt="Original 05 — detail" loading="lazy"></figure>
         <figure class="hscroll__frame"><img src="files/originals/hawks5detail2.jpg" alt="Original 05 — close-up detail" loading="lazy"></figure>
+        <figure class="hscroll__frame"><img src="files/originals/mockup5.png" alt="Original 05 — styled mockup 1" loading="lazy"></figure>
+        <figure class="hscroll__frame"><img src="files/originals/mockup15.png" alt="Original 05 — styled mockup 2" loading="lazy"></figure>
       </div>
-      <span class="hscroll__counter">01 — 04</span>
+      <span class="hscroll__counter">01 — 06</span>
       <span class="hscroll__hint lang-en">scroll</span>
       <span class="hscroll__hint lang-ja">スクロール</span>
     </div>
   </section>
 
+  <!--
   <section id="authenticity">
     <p class="eyebrow">
       <span class="eyebrow__mark" aria-hidden="true">+</span>
@@ -234,9 +223,6 @@
       <p class="lang-ja">すべてのオリジナル作品は一点物であり、直筆サインと真贋証明書が付属します。絵画は保護スリーブ、専用のラッピング、グラシン紙、そして硬質のアートメーラーを用いて、丁寧に梱包されます。</p>
     </div>
 
-    <!-- ⚠️ These four images (authenticitycert.jpg, packaging1/2/3.jpg) were not in your
-         "keep these" list, so they'll show broken until you re-add them or point these at
-         new files. -->
     <div class="authenticity__grid">
       <div>
         <div class="authenticity__media"><img src="files/authenticitycert.jpg" alt="Certificate of Authenticity" loading="lazy"></div>
@@ -260,6 +246,7 @@
       </div>
     </div>
   </section>
+  -->
 
   <section id="quotes">
     <p class="eyebrow eyebrow--centered">
@@ -275,24 +262,24 @@
     <!-- ✍️ ART TEXT: replace all five with real lines pulled from your inbox (with permission) -->
     <div class="quotes__grid">
       <div class="quotes__item">
-        <p>"It's the first thing I see when I wake up. Somehow it changes depending on the light."</p>
-        <cite>— E., Rotterdam</cite>
+        <p><span class="lang-en">"I feel like I have a bit of Berlin to-go in my room now."</span><span class="lang-ja">「今では、自分の部屋にベルリンの欠片を持ち帰ったような気持ちになります。」</span></p>
+        <cite><span class="lang-en">— D., Yokohama</span><span class="lang-ja">— D.、横浜</span></cite>
       </div>
       <div class="quotes__item">
-        <p>"The packaging alone felt like a gift. Everything arrived perfectly, and the little certificate is a lovely touch."</p>
-        <cite>— M., Vienna</cite>
+        <p><span class="lang-en">"The commissioning process was wonderful from start to finish! You were always so kind, quick and thoughtful. I really treasure this piece."</span><span class="lang-ja">「制作のご依頼から完成まで、本当に素晴らしい体験でした！いつも親切で、対応も早く、心配りが行き届いていて。この作品を大切な宝物にしています。」</span></p>
+        <cite><span class="lang-en">— E., Potsdam</span><span class="lang-ja">— E.、ポツダム</span></cite>
       </div>
       <div class="quotes__item">
-        <p>"I wasn't sure about buying art online, but this made it easy — and the painting is even better in person."</p>
-        <cite>— S., Tokyo</cite>
+        <p><span class="lang-en">"Buying this is my way to keep art alive in a world filled with AI-slob and an overload of reels and other rot. Plus, I get to have a painting I love in my little library."</span><span class="lang-ja">「AIが量産するコンテンツやリール動画があふれる世界で、本物のアートを生き続けさせるために、私はこの作品を買いました。おかげで、大好きな絵を自分の小さな書斎に置くことができています。」</span></p>
+        <cite><span class="lang-en">— S., Amsterdam</span><span class="lang-ja">— S.、アムステルダム</span></cite>
       </div>
       <div class="quotes__item">
-        <p>"Exactly the quiet, atmospheric feeling I was hoping for. It's become the calmest corner of our apartment."</p>
-        <cite>— A., Berlin</cite>
+        <p><span class="lang-en">"It reminds me to slow down."</span><span class="lang-ja">「この絵は、私にゆっくりすることを思い出させてくれます。」</span></p>
+        <cite><span class="lang-en">— A., Berlin</span><span class="lang-ja">— A.、ベルリン</span></cite>
       </div>
       <div class="quotes__item">
-        <p>"Shipping to the US took about two weeks, tracked the whole way. Worth every bit of the wait."</p>
-        <cite>— J., Portland</cite>
+        <p><span class="lang-en">"I am just happy I got to support such great art so early in your career :)"</span><span class="lang-ja">「あなたのキャリアのこんなに早い段階で、これほど素晴らしいアートを応援できたことが、ただただ嬉しいです：）」</span></p>
+        <cite><span class="lang-en">— J., Rotterdam</span><span class="lang-ja">— J.、ロッテルダム</span></cite>
       </div>
     </div>
   </section>
@@ -313,11 +300,11 @@
           </div>
         </a>
         <div class="originals__caption">
-          <h3 class="originals__title">Original 12</h3>
-          <span class="originals__price">€250</span>
+          <h3 class="originals__title">EGO-WRAPPIN'</h3>
+          <span class="originals__price">€180</span>
         </div>
       </article>
-      <article class="originals__item" data-sold="false">
+      <article class="originals__item" data-sold="true">
         <a href="original-1.html">
           <div class="originals__media">
             <img class="originals__img originals__img--base" src="files/originals/hawks1.jpg" alt="Original 01" loading="lazy">
@@ -325,7 +312,7 @@
           </div>
         </a>
         <div class="originals__caption">
-          <h3 class="originals__title">Original 01</h3>
+          <h3 class="originals__title">Hawk IX</h3>
           <span class="originals__price">€250</span>
         </div>
       </article>
@@ -337,8 +324,8 @@
           </div>
         </a>
         <div class="originals__caption">
-          <h3 class="originals__title">Original 02</h3>
-          <span class="originals__price">€250</span>
+          <h3 class="originals__title">Hawk V</h3>
+          <span class="originals__price">€190</span>
         </div>
       </article>
       <article class="originals__item" data-sold="false">
@@ -349,7 +336,7 @@
           </div>
         </a>
         <div class="originals__caption">
-          <h3 class="originals__title">Original 03</h3>
+          <h3 class="originals__title">Hawk II</h3>
           <span class="originals__price">€250</span>
         </div>
       </article>
@@ -402,7 +389,7 @@
       <a href="index.html#top"><span class="lang-en">Home</span><span class="lang-ja">ホーム</span></a>
       <a href="originals.html"><span class="lang-en">Originals</span><span class="lang-ja">オリジナル作品</span></a>
       <a href="prints.html"><span class="lang-en">Prints</span><span class="lang-ja">プリント</span></a>
-      <a href="index.html#statement"><span class="lang-en">About</span><span class="lang-ja">アバウト</span></a>
+      <a href="about.html"><span class="lang-en">About</span><span class="lang-ja">アバウト</span></a>
       <a href="index.html#contact"><span class="lang-en">Contact</span><span class="lang-ja">お問い合わせ</span></a>
     </nav>
     <button type="button" id="back-to-top" aria-label="Back to top">↑</button>
@@ -475,7 +462,7 @@
 
       <dl class="modal-recap">
         <dt><span class="lang-en">Piece</span><span class="lang-ja">作品</span></dt>
-        <dd>Original 05 — €250</dd>
+        <dd>Original 05 — Hawk VIII — €160</dd>
         <dt><span class="lang-en">Shipping to</span><span class="lang-ja">配送先</span></dt>
         <dd data-recap-name></dd>
         <dd data-recap-address></dd>
@@ -498,7 +485,7 @@
         <!-- 🔌 PayPal.me link — replace LiobaRoggendorf if your username ever changes.
              The amount is prefilled; ask the buyer to note the piece name so you
              know which painting a payment is for (PayPal.me can't pass that itself). -->
-        <a class="btn-paypal" href="https://paypal.me/LiobaRoggendorf/250EUR" target="_blank" rel="noopener">
+        <a class="btn-paypal" href="https://paypal.me/LiobaRoggendorf/160EUR" target="_blank" rel="noopener">
           <span aria-hidden="true">🅿️</span> Pay with PayPal
         </a>
         <p style="font-size:11px;color:var(--grey-mid);text-align:center;margin-top:-4px;">
