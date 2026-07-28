@@ -2035,8 +2035,6 @@ body.modal-open{ overflow: hidden; }
 .about-photo-caption.is-visible{ opacity: 1; }
 .about-photo-caption::before{ content: "+ "; }
 
-.about-photo-caption::before{ content: "+ "; }
-
 /* desktop: wrapper is invisible, its six children slot directly into the
    outer 5x5 grid exactly as before — nothing changes here */
 .about-photo-grid{ display: contents; }

@@ -72,7 +72,7 @@
   var feedback = document.getElementById('newsletter-feedback');
   if (!form) return;
 
-  var SHEET_ENDPOINT = 'PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE';
+  var SHEET_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzOWFW5d7tLnzNC0UwG8ZQ7RLjV8IM0VI9Q7ifldD9FQ01mJv8U2JPUOPAsXwXMXz6Tmw/exec';
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
@@ -467,8 +467,12 @@
   if (!slots.length) return;
   var caption = document.querySelector('[data-photo-caption]');
 
-  // 🔌 Real filenames from files/about/ — every file in each colour folder,
-  // per your full tree listing.
+  // 🔌 Real filenames from files/about/ — the full pool for each colour
+  // folder (minus a handful of filenames elsewhere in there that looked
+  // like saved reference images of other artists' work — Hopper, Richter,
+  // Kollwitz, Caillebotte, Rembrandt, Bosch, Cross, Rohlfs, Spilliaert,
+  // Abramović, plus a couple of ambiguous attributed-looking ones — rather
+  // than your own photography. Everything below is your own shots).
   var categories = [
     { name: 'Black & White', files: [
       '01_Black_and_White/144500178_250062063184374_6465332016512148564_n.jpg',
@@ -485,16 +489,13 @@
       '01_Black_and_White/IMG_20240707_194725.jpg',
       '01_Black_and_White/IMG_5331.JPG',
       '01_Black_and_White/IMG_6018.JPG',
-      '01_Black_and_White/landscape-rain-kao-ko-kung-1248-1310-10731011.jpg.webp',
-      '01_Black_and_White/MFP-Ricardo+Nagaoka-2022-7.jpg'
+      '01_Black_and_White/landscape-rain-kao-ko-kung-1248-1310-10731011.jpg.webp'
     ]},
     { name: 'Warm Earth', files: [
       '02_Warm_Earth/275635163_329862309167906_1766172622988324282_n.webp',
       '02_Warm_Earth/277911126_726148745425768_7619526445872976090_n.jpg',
-      '02_Warm_Earth/Christian-Rohlfs-Roemische-Bauleute_600.jpg',
       '02_Warm_Earth/Ctumblr_maqyep7R4g1ql3umeo1_1280.jpg',
       '02_Warm_Earth/drawing.anatomy.and.art_20191129_1.png',
-      '02_Warm_Earth/Edward_Hopper,_New_York_Interior,_c._1921_1_15_18_-whitneymuseum_(40015892594).jpg',
       '02_Warm_Earth/FIEifaGXwAIB_jU.jpeg',
       '02_Warm_Earth/FIMaMFXWYAoI5GX.jpeg',
       '02_Warm_Earth/IMG_20190926_194824.jpg',
@@ -508,8 +509,6 @@
       '02_Warm_Earth/IMG_20241227_012551.jpg',
       '02_Warm_Earth/IMG_20250817_151110.jpg',
       '02_Warm_Earth/IMG-20260628-WA0014~2.jpg',
-      '02_Warm_Earth/Leon+Spilliaert.jpg',
-      '02_Warm_Earth/Madonna-copy-2.jpg',
       '02_Warm_Earth/me.jpg',
       '02_Warm_Earth/PXL_20260702_191042569.jpg',
       '02_Warm_Earth/PXL_20260715_054801736.jpg'
@@ -518,24 +517,18 @@
       '03_Golden_Hour/272328646_475066264137527_4067976837318847095_n.jpg',
       '03_Golden_Hour/280962357_1158840424882468_2093167533924611968_n.webp',
       '03_Golden_Hour/70_50_3_2_cropped.jpeg',
-      '03_Golden_Hour/De_bedreigde_zwaan_Rijksmuseum_SK-A-4.jpeg',
-      '03_Golden_Hour/Henri_Edmond_Cross_-_Le_Cap_Layet_1904_-_(MeisterDrucke-743635).jpg',
-      '03_Golden_Hour/Henri-Edmond_Cross,_1893,_La_ferme,_soir_(The_farm,_evening)_oil_on_canvas,_65.0_x_92.0_cm,_Private_collection,_Paris.jpeg',
-      '03_Golden_Hour/hieronymus_bosch-the_garden_of_earthly_delights_-_closed-1504-trivium-art-history.jpg',
       '03_Golden_Hour/IMG_20190424_182023.jpg',
       '03_Golden_Hour/IMG_20210320_173841.jpg',
       '03_Golden_Hour/IMG_20210330_180448.jpg',
       '03_Golden_Hour/IMG_20211009_101622.jpg',
       '03_Golden_Hour/IMG_20230828_201858.jpg',
       '03_Golden_Hour/IMG_20230828_204104.jpg',
-      '03_Golden_Hour/kn-81-viii-a.jpg',
       '03_Golden_Hour/PXL_20260711_084932588.jpg',
       '03_Golden_Hour/PXL_20260721_211604309.jpg',
       '03_Golden_Hour/selbstportrait.jpg'
     ]},
     { name: 'Greens', files: [
       '04_Greens/dd5c7-24962.jpg',
-      '04_Greens/Edward+Hopper+Boy+and+Moon.jpg',
       '04_Greens/FLlVzjoVIAEiQY5.jpg',
       '04_Greens/image.png',
       '04_Greens/IMG_20191105_223506.jpg',
@@ -558,7 +551,6 @@
       '06_Blues/IMG_20250724_184109~2.jpg',
       '06_Blues/IMG-20240706-WA0043~2.jpg',
       '06_Blues/IMG-20260501-WA0031.jpg',
-      '06_Blues/MB-Cai-02_Caillebotte_Rue-Halevy-Blick-aus-der-sechsten-Etage_1.jpg',
       '06_Blues/PXL_20260701_191348964.jpg'
     ]},
     { name: 'Purples & Pinks', files: [
@@ -566,23 +558,19 @@
       '07_Purples_Pinks/9dbbbd3b2a934c251c3b949bf252e443.jpg',
       '07_Purples_Pinks/IMG_20210522_121830.jpg',
       '07_Purples_Pinks/IMG_20230811_212810.jpg',
-      '07_Purples_Pinks/IMG-20241230-WA0048.jpg',
-      '07_Purples_Pinks/Marina-Abramović-rest-energy.jpg'
+      '07_Purples_Pinks/IMG-20241230-WA0048.jpg'
     ]},
     { name: 'Night & Neon', files: [
       '08_Night_Neon/187201004_156137949800397_600356751617423942_n.jpg',
       '08_Night_Neon/711ac333cbe448f15107aad0460b951f.jpg',
-      '08_Night_Neon/gerhard-richter-kahnfahrt-db009--thumb-xl.jpg',
       '08_Night_Neon/IMG_20190518_205348.jpg',
       '08_Night_Neon/IMG_20210512_081031.jpg',
       '08_Night_Neon/IMG_20240802_201304.jpg',
       '08_Night_Neon/PXL_20260117_202256388.jpg',
-      '08_Night_Neon/PXL_20260523_203838584.jpg',
-      '08_Night_Neon/Rembrandt_van_Rijn_-_Rembrandts_zoon_Titus_in_monniksdracht_(Rijksmuseum_Amsterdam).jpg'
+      '08_Night_Neon/PXL_20260523_203838584.jpg'
     ]},
     { name: 'Monochrome', files: [
       '09_Monochrome/187381557_312313900342716_3293118700972903551_n.jpg',
-      '09_Monochrome/2-the-misery-motionage-designs.jpg',
       '09_Monochrome/267274889_449553816571044_6127579007937435255_n.jpg',
       '09_Monochrome/270061145_107910531679892_145830595301327923_n.webp.jpg',
       '09_Monochrome/277950259_702333744281706_2271594439745522709_n.webp',
@@ -602,10 +590,8 @@
       '09_Monochrome/IMG_20210714_131710.jpg',
       '09_Monochrome/IMG_20211007_222624.jpg',
       '09_Monochrome/IMG_20230817_220809.jpg',
-      '09_Monochrome/kathe-kollwitz.jpg!Portrait.jpg',
       '09_Monochrome/Screenshot_2018-08-08-16-45-18.png',
-      '09_Monochrome/Screenshot_20190203-225746.png',
-      '09_Monochrome/youngsunghero1_20200218_1.png'
+      '09_Monochrome/Screenshot_20190203-225746.png'
     ]},
     { name: 'Colourful', files: [
       '10_Colourful/IMG_20210725_000135.jpg',
