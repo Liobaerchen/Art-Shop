@@ -3,8 +3,41 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lioba Roggendorf</title>
-<meta name="description" content="Atmospheric watercolor and stylized portrait work — originals and prints.">
+<title>Lioba Roggendorf — Watercolor Artist</title>
+<meta name="description" content="Lioba Roggendorf is a watercolor artist based in Berlin, previously Amsterdam and Tokyo, making atmospheric watercolor and stylized portrait work — originals and prints.">
+<link rel="canonical" href="https://lioba.roggendorf.pro/">
+
+<!-- Structured data — tells Google explicitly who this page is about, which
+     helps it surface for searches like "[name] art". Purely invisible
+     metadata, doesn't affect anything visible on the page. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Lioba Roggendorf",
+  "jobTitle": "Watercolor Artist",
+  "description": "Watercolor artist based in Berlin, previously Amsterdam and Tokyo, making atmospheric watercolor paintings and stylized portrait work.",
+  "url": "https://lioba.roggendorf.pro/",
+  "image": "https://lioba.roggendorf.pro/files/favicon.png",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Berlin",
+    "addressCountry": "DE"
+  },
+  "sameAs": [
+    "https://www.instagram.com/lioba.ro/",
+    "https://www.tiktok.com/@lioba.ro"
+  ]
+}
+</script>
+
+<!-- 🔌 Add YouTube to the sameAs list above too, once that's real. -->
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Lioba Roggendorf — Watercolor Artist">
+<meta property="og:description" content="Atmospheric watercolor and stylized portrait work — originals and prints.">
+<meta property="og:url" content="https://lioba.roggendorf.pro/">
+<meta property="og:image" content="https://lioba.roggendorf.pro/files/favicon.png">
 
 <link rel="icon" type="image/png" href="files/favicon.png">
 <link rel="apple-touch-icon" href="files/favicon.png">
@@ -77,7 +110,14 @@
 
 <main id="top">
   <section id="featured-visual" class="hero-video">
-    <video class="hero-video__media" autoplay muted loop playsinline><source src="files/hero-video.mp4" type="video/mp4"></video>
+    <!-- 🔌 Run compress_hero_video.sh locally first — this references its
+         output files (hero-poster.jpg, hero-video.webm,
+         hero-video-optimized.mp4). Your original hero-video.mp4 is left
+         alone as an unused backup. -->
+    <video class="hero-video__media" autoplay muted loop playsinline preload="auto" poster="files/hero-poster.jpg">
+      <source src="files/hero-video.webm" type="video/webm">
+      <source src="files/hero-video-optimized.mp4" type="video/mp4">
+    </video>
     <div class="hero-video__overlay"></div>
     <div class="hero-video__content">
       <p class="eyebrow"><span class="eyebrow__mark" aria-hidden="true">+</span> <span class="lang-en">Watercolor; Fine Art Studio</span><span class="lang-ja">水彩画・ファインアートスタジオ</span></p>
@@ -181,8 +221,8 @@
     </p>
     <a href="mailto:lioba.roggendorf@gmail.com" class="contact__email">lioba.roggendorf@gmail.com</a>
     <div class="contact__socials">
-      <a href="#">Instagram</a>
-      <a href="#">TikTok</a>
+      <a href="https://www.instagram.com/lioba.ro/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.tiktok.com/@lioba.ro" target="_blank" rel="noopener">TikTok</a>
       <a href="#">YouTube</a>
     </div>
   </section>
@@ -199,5 +239,6 @@
 </footer>
 
 <script src="script.js"></script>
+<script data-goatcounter="https://liobaerchen.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>

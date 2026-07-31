@@ -1,0 +1,5 @@
+# Everything on the site is fine for search engines to crawl and index.
+User-agent: *
+Allow: /
+
+Sitemap: https://lioba.roggendorf.pro/sitemap.xml

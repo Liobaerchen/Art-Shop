@@ -61,35 +61,50 @@
 })();
 
 /* ==========================================================================
-   Newsletter form
+   Newsletter form + Prints "notify me" form — both save to the same
+   Google Sheet, tagged with which page the signup came from.
    🔌 Sends each signup to a Google Sheet via a Google Apps Script "Web App"
    endpoint — see the setup notes in the message this came with for how to
-   create SHEET_ENDPOINT. Until that's filled in, this still shows the
-   "thanks" message but doesn't save anything anywhere.
+   create SHEET_ENDPOINT. Until that's filled in, forms still show the
+   "thanks" message but don't save anything anywhere.
    ========================================================================== */
+var SHEET_ENDPOINT = 'https://script.google.com/macros/s/AKfycbyN0VqGrlPIkuTav5R59i4c0fkCCirhKxwDjfT69cMcjO6qRiHDUHVSaIcPpZiggmjDAQ/exec';
+
+// Human-readable label for the current page — this is what shows up in the
+// "Page" column in your Sheet. Falls back to the raw filename for anything
+// not listed here (e.g. a future original-13.html still shows up fine).
+function currentPageLabel() {
+  var file = (location.pathname.split('/').pop() || 'index.html');
+  var known = {
+    'index.html': 'Home',
+    'originals.html': 'Originals',
+    'prints.html': 'Prints',
+    'about.html': 'About'
+  };
+  return known[file] || file;
+}
+
+function submitToSheet(form) {
+  if (SHEET_ENDPOINT.indexOf('PASTE_YOUR') === 0) return;
+  var data = new FormData(form);
+  data.append('PAGE', currentPageLabel());
+  // "no-cors" means we can't read a real success/failure response back —
+  // that's a Google Apps Script limitation, not something fixable from
+  // here. The request still goes through; the form just shows its "thanks"
+  // message optimistically rather than waiting to confirm it.
+  fetch(SHEET_ENDPOINT, { method: 'POST', mode: 'no-cors', body: data })
+    .catch(function () { /* fails silently — network/offline, nothing to do here */ });
+}
+
 (function () {
   var form = document.getElementById('newsletter-form');
   var feedback = document.getElementById('newsletter-feedback');
   if (!form) return;
 
-  var SHEET_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzOWFW5d7tLnzNC0UwG8ZQ7RLjV8IM0VI9Q7ifldD9FQ01mJv8U2JPUOPAsXwXMXz6Tmw/exec';
-
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     var lang = document.documentElement.getAttribute('data-lang');
-
-    if (SHEET_ENDPOINT.indexOf('PASTE_YOUR') !== 0) {
-      // "no-cors" means we can't read a real success/failure response back —
-      // that's a Google Apps Script limitation, not something fixable from
-      // here. The request still goes through; we just show the "thanks"
-      // message optimistically rather than waiting to confirm it.
-      fetch(SHEET_ENDPOINT, {
-        method: 'POST',
-        mode: 'no-cors',
-        body: new FormData(form)
-      }).catch(function () { /* fails silently — network/offline, nothing to do here */ });
-    }
-
+    submitToSheet(form);
     feedback.textContent = lang === 'ja'
       ? 'ありがとうございます！登録が完了しました。'
       : "Thanks — you're on the list.";
@@ -434,8 +449,8 @@
 
 /* ==========================================================================
    PRINTS PAGE — notify-me form (name + email)
-   🔌 Same placeholder pattern as the main newsletter form — swap in your
-   email provider's real submit logic once you have one.
+   Saves to the same Sheet as the newsletter form, tagged "Prints" in the
+   Page column — see submitToSheet() above.
    ========================================================================== */
 (function () {
   var form = document.getElementById('prints-notify-form');
@@ -445,6 +460,7 @@
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     var lang = document.documentElement.getAttribute('data-lang');
+    submitToSheet(form);
     feedback.textContent = lang === 'ja'
       ? 'ありがとうございます！登録が完了しました。'
       : "Thanks — you're on the list.";
